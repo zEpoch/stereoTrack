@@ -5,18 +5,7 @@ import logging
 
 
 def seed_all(seed=42):
-    """
-    Set random seed for reproducibility
-    
-    Parameters
-    ----------
-    seed : int
-        Random seed value
-        
-    Examples
-    --------
-    >>> seed_all(42)
-    """
+
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
@@ -28,14 +17,7 @@ def seed_all(seed=42):
 
 
 def setup_logging(log_file=None):
-    """
-    Setup logging configuration
-    
-    Parameters
-    ----------
-    log_file : str, optional
-        Path to log file
-    """
+
     handlers = [logging.StreamHandler()]
     if log_file:
         handlers.append(logging.FileHandler(log_file))

@@ -3,13 +3,13 @@ from .dataset import (
     StereoTrackGraphDataset,
     StereoTrackDataLoader,
     construct_data,
-    get_feature_sparse,
-    construct_mask
+    construct_data_multislice,
+    MultiSliceGraphDataset,
+    MultiSliceDataLoader,
+    get_feature_sparse
 )
-from .train import train_stereotrack, compute_loss
+from .train import compute_loss, train_stereotrack_multislice
 from .process import (
-    inference_stereotrack,
-    preprocess_adata_with_multislice,
     construct_graph,
     preprocess_adj_sparse,
     get_spatial_input
@@ -17,6 +17,9 @@ from .process import (
 from .utils import seed_all
 
 __all__ = [
+    'MultiSliceGraphDataset',
+    'MultiSliceDataLoader',
+    'construct_data_multislice',
     'StereoTrackModel',
     'StereoTrackEncoder',
     'StereoTrackDecoder',
@@ -25,11 +28,9 @@ __all__ = [
     'construct_data',
     'get_feature_sparse',
     'construct_mask',
-    'train_stereotrack',
+    'train_stereotrack_multislice',
     'compute_loss',
-    'inference_stereotrack',
     'seed_all',
-    'preprocess_adata_with_multislice',
     'construct_graph',
     'preprocess_adj_sparse',
     'get_spatial_input'
