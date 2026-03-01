@@ -22,11 +22,11 @@ from stereotrack.dataset import (
 )
 
 
-def compute_loss(model, x, adj, x_recon, z_distribution, z_spatial, z_mean):
+def compute_loss(model, x, adj, x_recon, z_distribution, z_spatial, z_mean, beta = 1.0):
     recon_loss = F.mse_loss(x_recon, x)
     kl_loss = D.kl_divergence(z_distribution, D.Normal(0.0, 1.0)).sum(dim=1).mean() / x.shape[1]
     lambda_recon = 1.0
-    lambda_kl = 1.0
+    lambda_kl = beta
     total_loss = lambda_recon * recon_loss + lambda_kl * kl_loss
     return total_loss, recon_loss, kl_loss
 

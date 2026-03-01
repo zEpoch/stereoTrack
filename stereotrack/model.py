@@ -49,9 +49,9 @@ class StereoTrackEncoder(nn.Module):
         h_2 = self.dropout_1(h_2)
 
         z_mean = self.mean(h_2)
-        z_log_var = F.softplus(self.log_var(h_2))
+        z_std = F.softplus(self.log_var(h_2)) + 1e-6 
 
-        z_sample = D.Normal(z_mean, z_log_var)
+        z_sample = D.Normal(z_mean, z_std)
         
         z_spatial = torch.mm(adj.T, z_mean)
 

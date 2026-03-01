@@ -14,7 +14,16 @@ from .process import (
     preprocess_adj_sparse,
     get_spatial_input
 )
-from .utils import seed_all
+from .utils import (
+    seed_all,
+    get_velocity,
+    get_velocity_grid,
+    get_neigh_trans,
+    get_ptime,
+    get_ot_matrix,
+    set_start_cells,
+    run_track
+                    )
 
 __all__ = [
     'MultiSliceGraphDataset',
@@ -27,11 +36,17 @@ __all__ = [
     'StereoTrackDataLoader',
     'construct_data',
     'get_feature_sparse',
-    'construct_mask',
     'train_stereotrack_multislice',
     'compute_loss',
     'seed_all',
     'construct_graph',
     'preprocess_adj_sparse',
-    'get_spatial_input'
+    'get_spatial_input',
+    'get_velocity',
+    'get_velocity_grid',
+    'get_neigh_trans',
+    'get_ptime',
+    'get_ot_matrix',
+    'set_start_cells',
+    'run_track'
 ]

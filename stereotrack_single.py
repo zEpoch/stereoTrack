@@ -56,7 +56,7 @@ all_genes = sorted(list(all_genes))
 batch_size = 2048
 hidden_dim=512
 latent_dim=64
-n_epochs=50
+n_epochs=10
 dropout_rate= 0.2
 learning_rate = 0.001
 patience = 20
@@ -168,10 +168,15 @@ for slice_idx, adata in enumerate(adatas):
         z_spatial = z_spatial.cpu().numpy()
         x_recon = x_recon.cpu().numpy()
 
-    adata.obsm['cell_embedding'] = z_mean
-    adata.obsm['spatial_embedding'] = z_spatial
-    adata.X = x_recon
-    adata.write_h5ad(f"{save_dir}/nouse_spatial_decoder/adatas/{z}.h5ad")
+    adata2=sc.AnnData(x_recon)
+    adata2.obs=adata.obs
+    adata2.var=adata.var
+    adata2.obsm=adata.obsm
+    adata2.obsm['cell_embedding'] = z_mean
+    adata2.obsm['niche_embedding'] = z_spatial
+    adata2.write_h5ad(f"{save_dir}/nouse_spatial_decoder/adatas/{z}.h5ad")
+
+
 
 '''
 test data
