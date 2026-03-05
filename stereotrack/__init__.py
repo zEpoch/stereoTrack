@@ -1,4 +1,4 @@
-from .model import StereoTrackModel, StereoTrackEncoder, StereoTrackDecoder
+# from .model import StereoTrackModel, StereoTrackEncoder, StereoTrackDecoder
 from .dataset import (
     StereoTrackGraphDataset,
     StereoTrackDataLoader,
@@ -6,7 +6,9 @@ from .dataset import (
     construct_data_multislice,
     MultiSliceGraphDataset,
     MultiSliceDataLoader,
-    get_feature_sparse
+    get_feature_sparse,
+    SpatialPatchDataset,
+    patch_collate_fn
 )
 from .train import compute_loss, train_stereotrack_multislice
 from .process import (
@@ -25,13 +27,19 @@ from .utils import (
     run_track
                     )
 
+from .mae import (
+    MAEEncoder
+)
 __all__ = [
+    'MAEEncoder',
+    'patch_collate_fn',
+    'SpatialPatchDataset',
     'MultiSliceGraphDataset',
     'MultiSliceDataLoader',
     'construct_data_multislice',
-    'StereoTrackModel',
-    'StereoTrackEncoder',
-    'StereoTrackDecoder',
+    # 'StereoTrackModel',
+    # 'StereoTrackEncoder',
+    # 'StereoTrackDecoder',
     'StereoTrackGraphDataset',
     'StereoTrackDataLoader',
     'construct_data',

@@ -1,0 +1,23 @@
+paths:
+  data_path: /home/share/huadjyin/home/zhoutao3/tracks/example_data/05_mouse_embyro_e115/mouse_E11.5_embryo.h5ad
+  save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/05_mouse_embyro_e115_mae_v2
+
+preprocess:
+  batch_label: z_axis
+  spatial_key: z_correction
+
+model:
+  hidden_dim: 512
+  latent_dim: 64
+  dropout_rate: 0.1
+  gene_mask_ratio: 0.5
+  cell_mask_ratio: 0.2
+
+training:
+  patch_size: 4096
+  n_epochs: 50
+  learning_rate: 0.001
+  patience: 20
+  grad_accum_steps: 4
+  use_amp: true
+  infer_batch_size: 4096
