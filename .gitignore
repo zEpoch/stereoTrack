@@ -2,3 +2,4 @@ out/
 test/
 .ipynb_checkpoints
 __pycache__
+allen_cache
