@@ -1,0 +1,33 @@
+paths:
+  data_path: /home/share/huadjyin/home/zhoutao3/tracks/example_data/07_macaque_brain/cortex
+  input_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/02_macaque_brain_mae
+  save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/02_macaque_brain_mae
+
+preprocess:
+  spatial_key: 'ccf'
+
+model:
+  hidden_dim: 512
+  latent_dim: 64
+  dropout_rate: 0.1
+  gene_mask_ratio: 0.5
+  cell_mask_ratio: 0.2
+
+training:
+  patch_size: 16384
+  n_epochs: 50
+  learning_rate: 5e-5
+  patience: 20
+  grad_accum_steps: 4
+  use_amp: false
+  infer_batch_size: 16384
+
+logging:
+  use_tensorboard: False
+  tensorboard_save_dir: "./logs/tensorboard"
+  use_wandb: true
+  wandb_project: "StereoTrack"
+  wandb_name: "02_Chen_Cell_v1"
+  wandb_save_dir: "/home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/02_macaque_brain_mae/wandb"
+
+# 02_Chen_Cell

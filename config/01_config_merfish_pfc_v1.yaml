@@ -1,0 +1,40 @@
+paths:
+  data_path: /home/share/huadjyin/home/zhoutao3/tracks/example_data/11_mouse_Bhattacherjee/process
+  input_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/01_merfish_pfc_v1
+  save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/01_merfish_pfc_v1
+
+preprocess:
+  spatial_key: 'spatial'
+
+model:
+  hidden_dim: 512
+  latent_dim: 64
+  dropout_rate: 0.1
+  gene_mask_ratio: 0.5
+  cell_mask_ratio: 0.2
+  n_encoder_layers: 3
+  n_decoder_layers: 3
+
+training:
+  patch_size: 16384
+  n_epochs: 20000
+  learning_rate: 2e-3      
+  warmup_epochs: 50
+  patience: 100
+  grad_accum_steps: 4
+  use_amp: false
+  infer_batch_size: 16384
+  lambda_binary: 0.1       # 二值重建任务权重，建议 0.1 ~ 0.3
+  lambda_dmt: 0.1          # DMT 任务权重，建议 0.1 ~ 0.3
+  dmt_nu: 0.2             # DMT t-学生核参数
+  dmt_gamma: 0.1           # DMT 交叉匹配权重
+
+logging:
+  use_tensorboard: False
+  tensorboard_save_dir: "./logs/tensorboard"
+  use_wandb: true
+  wandb_project: "StereoTrack"
+  wandb_name: "01_Merfish_PFC_v1"
+  wandb_save_dir: "/home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/01_merfish_pfc_v1/wandb"
+
+# 01_Merfish_PFC

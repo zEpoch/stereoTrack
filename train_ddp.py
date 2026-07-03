@@ -22,6 +22,7 @@ from torch.utils.data import Dataset, DataLoader, DistributedSampler
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
 from stereotrack.mae import MAEEncoder
+from stereotrack.dataset import normalize_meta
 
 import scipy.sparse as sp
 
@@ -92,10 +93,10 @@ def load_meta(cfg):
 
     if os.path.exists(meta_pkl):
         with open(meta_pkl, "rb") as f:
-            return pickle.load(f), cache_dir
+            return normalize_meta(pickle.load(f)), cache_dir
     elif os.path.exists(meta_yaml):
         with open(meta_yaml, "r") as f:
-            return yaml.safe_load(f), cache_dir
+            return normalize_meta(yaml.safe_load(f)), cache_dir
     else:
         raise FileNotFoundError(
             f"缓存不存在: {cache_dir}\n"

@@ -1,5 +1,6 @@
 paths:
   data_path: /home/share/huadjyin/home/zhoutao3/tracks/example_data/03_han_mouse_brain
+  input_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/03_han_mouse_brain_mae_v5
   save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/03_han_mouse_brain_mae
 
 preprocess:

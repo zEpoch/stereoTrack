@@ -1,227 +1,171 @@
-import torch
-import dgl
+import os
+import yaml
+import pickle
 import numpy as np
-from torch.utils.data import Dataset, DataLoader
+import torch
+from torch.utils.data import Dataset
 import scipy.sparse as sp
-import itertools
+from scipy.spatial import cKDTree
+__all__ = [ 'normalize_meta', 'load_meta', 'LazyPatchDataset', 'DynamicGraphDataset']
 
-# ═══════════════════════════════════════════════════════════════════════════
-# 3. 数据集：将所有切片的 patch 展平为一个大 Dataset
-# ═══════════════════════════════════════════════════════════════════════════
-class SpatialPatchDataset(Dataset):
-    """
-    将多切片数据展平：每个样本 = (slice_idx, cell_indices_in_batch)
-    这里采用 "按 patch 采样" 策略：
-      - 预先将每个切片的细胞按固定 patch_size 分成若干 patch
-      - 每个 patch 作为一个样本，DataLoader 的 batch_size=1（每次取一个 patch）
-        或者 batch_size=N（取 N 个 patch 拼接）
+
+def normalize_meta(meta):
+    if not isinstance(meta, dict):
+        return meta
+
+    if "patches" not in meta and "all_patches" in meta:
+        meta["patches"] = meta["all_patches"]
+    if "slice_info" not in meta and "all_slice_info" in meta:
+        meta["slice_info"] = meta["all_slice_info"]
+
+    if "input_dim" not in meta:
+        if isinstance(meta.get("common_human_genes"), list) and meta["common_human_genes"]:
+            meta["input_dim"] = len(meta["common_human_genes"])
+        elif isinstance(meta.get("patches"), list) and meta["patches"]:
+            first_patch = meta["patches"][0]
+            if isinstance(first_patch, dict) and "n_genes" in first_patch:
+                meta["input_dim"] = int(first_patch["n_genes"])
+        elif isinstance(meta.get("slice_info"), list) and meta["slice_info"]:
+            first_slice = meta["slice_info"][0]
+            if isinstance(first_slice, dict) and "n_genes" in first_slice:
+                meta["input_dim"] = int(first_slice["n_genes"])
+
+    if "n_patches" not in meta and isinstance(meta.get("patches"), list):
+        meta["n_patches"] = len(meta["patches"])
+    if "n_slices" not in meta and isinstance(meta.get("slice_info"), list):
+        meta["n_slices"] = len(meta["slice_info"])
+
+    return meta
+
+
+def resolve_cache_file(cache_dir, file_name):
+    direct_path = os.path.join(cache_dir, file_name)
+    if os.path.exists(direct_path):
+        return direct_path
+
+    integrated_path = os.path.join(cache_dir, "integrated", file_name)
+    if os.path.exists(integrated_path):
+        return integrated_path
+
+    return direct_path
+
+
+def load_meta(cfg):
+    cache_dir = os.path.join(cfg["paths"]["input_dir"], "cache")
+    meta_yaml = os.path.join(cache_dir, "meta.yaml")
+    meta_pkl = os.path.join(cache_dir, "meta.pkl")
     
-    这样 DistributedSampler 可以自动在多卡间均匀分配 patch。
+    if os.path.exists(meta_yaml):
+        with open(meta_yaml, "r") as f:
+            return normalize_meta(yaml.safe_load(f)), cache_dir
+    elif os.path.exists(meta_pkl):
+        with open(meta_pkl, "rb") as f:
+            return normalize_meta(pickle.load(f)), cache_dir
+    else:
+        raise FileNotFoundError(f"缓存不存在: {cache_dir}")
+
+class LazyPatchDataset(Dataset):
     """
-
-    def __init__(self, adatas, adj_all, features_all, patch_size=4096):
-        super().__init__()
-        self.adatas = adatas
-        self.adj_all = adj_all
-        self.features_all = features_all
-        self.patch_size = patch_size
-
-        # 构建 (slice_idx, start, end) 索引
-        self.patches = []
-        for s_idx, adata in enumerate(adatas):
-            n_cells = adata.shape[0]
-            for start in range(0, n_cells, patch_size):
-                end = min(start + patch_size, n_cells)
-                self.patches.append((s_idx, start, end))
+    读取预先由 K-Means 切好的、物理空间连通的固定 Patch。
+    """
+    def __init__(self, cache_dir, patches):
+        self.cache_dir = cache_dir
+        self.patches = patches
 
     def __len__(self):
         return len(self.patches)
 
     def __getitem__(self, idx):
-        s_idx, start, end = self.patches[idx]
-        cell_idx = np.arange(start, end)
+        info = self.patches[idx]
+        fpath = resolve_cache_file(self.cache_dir, info["file"])
+        
+        with np.load(fpath) as data:
+            feat_sparse = sp.csr_matrix(
+                (data["feat_data"].astype(np.float32), 
+                 data["feat_indices"],
+                 data["feat_indptr"]),
+                shape=tuple(data["feat_shape"]),
+            )
+            adj_sparse = sp.csr_matrix(
+                (data["adj_data"].astype(np.float32),
+                 data["adj_indices"],
+                 data["adj_indptr"]),
+                shape=tuple(data["adj_shape"]),
+            )
+            
+            slice_idx = int(data["slice_idx"]) if "slice_idx" in data else info.get("slice_idx", 0)
 
-        # 从稀疏矩阵中取子集 → dense numpy
-        feat_sub = self.features_all[s_idx][cell_idx]
-        adj_sub = self.adj_all[s_idx][cell_idx][:, cell_idx]
+        # 转换为 PyTorch 需要的 Dense 张量
+        feat_dense = feat_sparse.toarray()
+        adj_dense = adj_sparse.toarray()
 
-        if sp.issparse(feat_sub):
-            feat_sub = feat_sub.toarray()
-        if sp.issparse(adj_sub):
-            adj_sub = adj_sub.toarray()
+        return {
+            "features": torch.from_numpy(feat_dense),
+            "adj": torch.from_numpy(adj_dense),
+            "slice_idx": slice_idx,
+        }
 
-        feat_sub = np.asarray(feat_sub, dtype=np.float32)
-        adj_sub = np.asarray(adj_sub, dtype=np.float32)
+class DynamicGraphDataset(Dataset):
+    """
+    在内存中挂载所有切片的稀疏大图。
+    """
+    def __init__(self, cache_dir, slice_infos, patch_size):
+        self.cache_dir = cache_dir
+        self.patch_size = patch_size
+        self.slices = []
+        self.total_cells = 0
+        
+        for info in slice_infos:
+            fpath = resolve_cache_file(self.cache_dir, info["file"])
+            data = np.load(fpath, mmap_mode="r") 
+            coords = data["coords"][:]
+            kdtree = cKDTree(coords)
+            
+            self.slices.append({
+                "file_path": fpath,
+                "kdtree": kdtree,
+                "coords": coords,
+                "n_cells": info["n_cells"]
+            })
+            self.total_cells += info["n_cells"]
+            
+        self.steps_per_epoch = self.total_cells // patch_size
+
+    def __len__(self):
+        return self.steps_per_epoch
+
+    def __getitem__(self, idx):
+        slice_idx = np.random.randint(len(self.slices))
+        s_data = self.slices[slice_idx]
+        
+        center_idx = np.random.randint(s_data["n_cells"])
+        # 2. kdtree 查询（确保 k 不超过细胞总数）
+        k_neighbors = min(self.patch_size, s_data["n_cells"])
+        _, cell_idx = s_data["kdtree"].query(s_data["coords"][center_idx], k=k_neighbors)
+        
+        
+        if isinstance(cell_idx, int):
+            cell_idx = [cell_idx]
+        
+        # 4. 【越界兜底】：把任何大于等于 n_cells 的畸形索引强行拉回合法边界
+        max_valid_idx = s_data["n_cells"] - 1
+        cell_idx = np.clip(cell_idx, 0, max_valid_idx)
+
+        with np.load(s_data["file_path"], mmap_mode="r") as data:
+            feat_sparse = sp.csr_matrix(
+                (data["feat_data"][:], data["feat_indices"][:], data["feat_indptr"][:]),
+                shape=tuple(data["feat_shape"]),
+            )
+            adj_sparse = sp.csr_matrix(
+                (data["adj_data"], data["adj_indices"], data["adj_indptr"]),
+                shape=tuple(data["adj_shape"]),
+            )
+            
+            feat_sub = feat_sparse[cell_idx].toarray().astype(np.float32)
+            adj_sub = adj_sparse[cell_idx][:, cell_idx].toarray().astype(np.float32)
 
         return {
             "features": torch.from_numpy(feat_sub),
             "adj": torch.from_numpy(adj_sub),
-            "slice_idx": s_idx,
-            "cell_start": start,
-            "cell_end": end,
+            "slice_idx": slice_idx,
         }
-
-
-def patch_collate_fn(batch):
-    """
-    每次只取 1 个 patch（因为不同 patch 大小可能不同，且 adj 是方阵）。
-    如果需要多 patch 拼接，需要 block-diagonal 拼接 adj。
-    这里简单起见 batch_size=1。
-    """
-    assert len(batch) == 1, "当前实现每次只处理 1 个 patch，请设置 DataLoader batch_size=1"
-    item = batch[0]
-    return {
-        "features": item["features"],
-        "adj": item["adj"],
-        "slice_idx": item["slice_idx"],
-        "cell_start": item["cell_start"],
-        "cell_end": item["cell_end"],
-    }
-
-class StereoTrackGraphDataset(Dataset):
-    def __init__(self, g, adata):
-        self.g = g
-        self.n_nodes = g.number_of_nodes()
-        self.adata = adata
-
-    def __len__(self):
-        return self.n_nodes
-
-    def __getitem__(self, idx):
-        return idx
-
-
-class StereoTrackDataLoader:
-    def __init__(self, dataset, sampler, batch_size, shuffle, drop_last):
-        self.dataset = dataset
-        self.sampler = sampler
-        self.batch_size = batch_size
-        self.shuffle = shuffle
-        
-        self.dataloader = DataLoader(
-            self.dataset,
-            batch_size=batch_size,
-            shuffle=shuffle,
-            drop_last=drop_last,
-        )
-
-    def __iter__(self):
-        for indices in self.dataloader:
-            if isinstance(indices, torch.Tensor):
-                indices = indices.flatten()
-            blocks = {
-                "single": indices,
-                "spatial": self.sampler.sample_blocks(self.dataset.g, indices),
-            }
-            yield blocks
-
-    def __len__(self):
-        return len(self.dataloader)
-
-
-class MultiSliceGraphDataset(Dataset):
-    """
-    Dataset for multiple slices (similar to FuseMap's CustomGraphDataset)
-    
-    Parameters
-    ----------
-    g : dgl.DGLGraph
-        The graph structure for this slice
-    adata : AnnData
-        The anndata object containing spatial data
-    
-    Examples
-    --------
-    >>> dataset = MultiSliceGraphDataset(g, adata)
-    """
-    def __init__(self, g, adata):
-        self.g = g
-        self.n_nodes = g.number_of_nodes()
-        self.adata = adata
-
-    def __len__(self):
-        return self.n_nodes
-
-    def __getitem__(self, idx):
-        return idx
-
-
-class MultiSliceDataLoader:
-
-    def __init__(self, dataset_all, sampler, batch_size, shuffle, n_slices, drop_last):
-        self.dataset_all = dataset_all
-        self.sampler = sampler
-        self.batch_size = batch_size
-        self.shuffle = shuffle
-        self.n_slices = n_slices
-
-        self.dataloader = []
-        for i in range(n_slices):
-            self.dataloader.append(
-                DataLoader(
-                    self.dataset_all[i],
-                    batch_size=batch_size,
-                    shuffle=shuffle,
-                    drop_last=drop_last,
-                )
-            )
-
-    def __iter__(self):
-        dataloader_iters = [iter(dl) for dl in self.dataloader]
-        active_loaders = list(range(self.n_slices))
-        
-        while active_loaders:
-            for slice_idx in list(active_loaders):
-                try:
-                    indices = next(dataloader_iters[slice_idx])
-                    if isinstance(indices, torch.Tensor):
-                        indices = indices.flatten().cpu().numpy()
-                    elif not isinstance(indices, np.ndarray):
-                        indices = np.array(indices)
-                    
-                    n_nodes = self.dataset_all[slice_idx].n_nodes
-                    if indices.max() >= n_nodes:
-                        raise ValueError(
-                            f"Index {indices.max()} out of range for slice {slice_idx} "
-                            f"with {n_nodes} nodes"
-                        )
-                    
-                    blocks = {
-                        "slice_idx": slice_idx,
-                        "single": indices,
-                        "spatial": self.sampler.sample_blocks(
-                            self.dataset_all[slice_idx].g, torch.from_numpy(indices)
-                        ),
-                    }
-                    yield blocks
-                except StopIteration:
-                    active_loaders.remove(slice_idx)
-
-    def __len__(self):
-        return sum([len(dl) for dl in self.dataloader])
-
-
-def construct_data(adata, model=None):
-
-    adj_coo = adata.obsm["adj_normalized"].tocoo()
-    adj = adata.obsm["adj_normalized"]
-    g = dgl.graph((adj_coo.row, adj_coo.col))
-    
-    return adj, g
-
-
-def get_feature_sparse(device, feature):
-
-    return feature.copy()
-
-def construct_data_multislice(adatas):
-
-    adj_all = []
-    g_all = []
-    
-    for adata in adatas:
-        adj_coo = adata.obsm["adj_normalized"].tocoo()
-        adj_all.append(adata.obsm["adj_normalized"])
-        g_all.append(dgl.graph((adj_coo.row, adj_coo.col)))
-    
-    return adj_all, g_all

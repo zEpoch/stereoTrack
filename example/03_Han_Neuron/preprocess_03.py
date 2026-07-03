@@ -1,5 +1,13 @@
 import os
 import gc
+
+import sys
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+
 import argparse
 import pickle
 import time
@@ -8,6 +16,7 @@ from pathlib import Path
 
 import yaml
 import numpy as np
+import pandas as pd
 import torch
 import scanpy as sc
 import scipy.sparse as sp
@@ -40,7 +49,7 @@ def mem_usage():
 
 
 def preprocess(cfg, force=False):
-    save_dir = cfg["paths"]["save_dir"]
+    save_dir = cfg["paths"]["input_dir"]
     cache_dir = os.path.join(save_dir, "cache")
     Path(cache_dir).mkdir(parents=True, exist_ok=True)
 
@@ -53,10 +62,15 @@ def preprocess(cfg, force=False):
 
     # ── 读取数据 ──
     data_path = cfg["paths"]["data_path"]
-    batch_label = cfg["preprocess"]["batch_label"]
     spatial_key = cfg["preprocess"]["spatial_key"]
-
-   adata_path_list = [i for i in os.listdir(data_path) if i.endswith('.h5ad')]
+    patch_size = cfg["training"].get("patch_size", 4096)
+    
+    adata_path_list = [i for i in os.listdir(data_path) if i.endswith('.h5ad')]
+    # print(f"读取数据: {data_path}")
+    # adata = sc.read_h5ad(data_path)
+    # adata.var_names_make_unique()
+    # adata.obs_names_make_unique()
+    # adata.obs['z_axis'] = [str(int(i)) for i in adata.obsm[spatial_key][:,2]]
     common_genes = None
     for adata_path in adata_path_list:
         adata = sc.read_h5ad(os.path.join(data_path, adata_path))
@@ -65,15 +79,15 @@ def preprocess(cfg, force=False):
         common_genes = set(adata.var.index.tolist()) if common_genes is None else common_genes.intersection(set(adata.var.index.tolist()))
     common_genes = sorted(list(common_genes)) if common_genes is not None else []
     print(f"公共基因数: {len(common_genes)}")
-
+    del adata
+    gc.collect()
     # ── 按 batch 切分 ──
-    adata.obs[batch_label] = adata.obs[batch_label].astype(str)
-    batches = sorted(set(adata.obs[batch_label]))
+    batches = sorted(set(adata_path_list))
     print(f"切片数: {len(batches)}")
     print(f"切片列表: {batches}")
 
     # ── 逐切片预处理（边处理边保存，释放内存） ──
-    patch_size = cfg["training"].get("patch_size", 4096)
+    
     patch_index = []
     slice_info_list = []
 
@@ -81,11 +95,16 @@ def preprocess(cfg, force=False):
     Path(adata_cache_dir).mkdir(parents=True, exist_ok=True)
 
     for i, batch in enumerate(batches):
+        temp = sc.read_h5ad(os.path.join(data_path, batch))
+        temp.var_names_make_unique()
+        temp.obs_names_make_unique()
+        temp = temp[temp.obs['gene_area']>0]
+        temp.obsm['ccf'] = temp.obs[['az','ay','ax']].values
+        temp = temp[:, common_genes].copy()
         t0 = time.time()
         print(f"\n{'='*60}")
         print(f"  切片 {i+1}/{len(batches)} (batch={batch}), 内存: {mem_usage():.1f} GB")
 
-        temp = adata[adata.obs[batch_label] == batch].copy()
         n_cells = temp.shape[0]
         print(f"  细胞数: {n_cells}, 基因数: {temp.shape[1]}")
 
@@ -111,92 +130,62 @@ def preprocess(cfg, force=False):
         temp = get_spatial_input(temp)
         print(f"done ({time.time()-t1:.1f}s)")
 
-        # ── 保存 adata（推理用）──
-        temp.write_h5ad(os.path.join(adata_cache_dir, f"slice_{i}.h5ad"))
-
         # ── 提取特征和邻接矩阵 ──
         print(f"  [5/5] 提取特征 + 分 patch 保存 ...", end=" ", flush=True)
         t1 = time.time()
 
         feat_sparse = get_feature_sparse(torch.device("cpu"), temp.obsm["spatial_input"])
 
-        # 邻接矩阵：优先用归一化后的
         if "adj_norm" in temp.obsm:
-            adj_sparse = temp.obsm["adj_norm"]
+            adj_sparse = temp.obsm["adj_norm"].copy()
         elif "spatial_connectivities" in temp.obsp:
-            adj_sparse = temp.obsp["spatial_connectivities"]
+            adj_sparse = temp.obsp["spatial_connectivities"].copy()
         elif "connectivities" in temp.obsp:
-            adj_sparse = temp.obsp["connectivities"]
+            adj_sparse = temp.obsp["connectivities"].copy()
         else:
             raise KeyError(f"切片 {batch}: 找不到邻接矩阵")
 
         if not sp.issparse(adj_sparse):
             adj_sparse = sp.csr_matrix(adj_sparse)
-        # ── 按 patch 分片保存 ──
-        n_patches_this = 0
-        for start in range(0, n_cells, patch_size):
-            end = min(start + patch_size, n_cells)
-            cell_idx = np.arange(start, end)
+            
+        coords = temp.obsm['ccf'] 
+        
 
-            feat = feat_sparse[cell_idx]
-            adj = adj_sparse[cell_idx][:, cell_idx]
+        fname = f"slice_{i}_full_graph.npz"
+        fpath = os.path.join(cache_dir, fname)
 
-            # 确保是 CSR 格式
-            if sp.issparse(feat):
-                feat = sp.csr_matrix(feat)
-            else:
-                feat = sp.csr_matrix(np.asarray(feat, dtype=np.float32))
-
-            if sp.issparse(adj):
-                adj = sp.csr_matrix(adj)
-            else:
-                adj = sp.csr_matrix(np.asarray(adj, dtype=np.float32))
-
-            fname = f"patch_s{i}_c{start}_{end}.npz"
-            fpath = os.path.join(cache_dir, fname)
-
-            # 稀疏保存：只存 data/indices/indptr/shape
-            np.savez_compressed(
-                fpath,
-                # 特征矩阵（float16 省一半）
-                feat_data=feat.data.astype(np.float16),
-                feat_indices=feat.indices,
-                feat_indptr=feat.indptr,
-                feat_shape=np.array(feat.shape),
-                # 邻接矩阵（float32 保精度）
-                adj_data=adj.data.astype(np.float32),
-                adj_indices=adj.indices,
-                adj_indptr=adj.indptr,
-                adj_shape=np.array(adj.shape),
-            )
-
-            patch_index.append({
-                "slice_idx": i,
-                "start": int(start),
-                "end": int(end),
-                "n_cells": int(end - start),
-                "file": fname,
-            })
-            n_patches_this += 1
-
-        print(f"done, {n_patches_this} patches ({time.time()-t1:.1f}s)")
+        np.savez_compressed(
+            fpath,
+            feat_data=feat_sparse.data.astype(np.float32),
+            feat_indices=feat_sparse.indices.astype(np.int64),
+            feat_indptr=feat_sparse.indptr.astype(np.int64),
+            feat_shape=np.array(feat_sparse.shape),
+            adj_data=adj_sparse.data.astype(np.float32),
+            adj_indices=adj_sparse.indices.astype(np.int64),
+            adj_indptr=adj_sparse.indptr.astype(np.int64),
+            adj_shape=np.array(adj_sparse.shape),
+            coords=coords.astype(np.float32)
+        )
 
         slice_info_list.append({
             "batch": batch,
             "n_cells": int(n_cells),
             "n_genes": int(temp.shape[1]),
-            "n_patches": n_patches_this,
+            "file": fname
         })
 
-        # ── 释放当前切片内存 ──
+        del temp.obsm["spatial_input"]
+        if "adj_norm" in temp.obsm:
+            del temp.obsm["adj_norm"]
+        if "spatial_connectivities" in temp.obsp:
+            del temp.obsp["spatial_connectivities"]
+        temp.write_h5ad(os.path.join(adata_cache_dir, f"slice_{i}.h5ad"))
+
         del temp, feat_sparse, adj_sparse
         gc.collect()
 
         print(f"  总耗时: {time.time()-t0:.1f}s, 内存: {mem_usage():.1f} GB")
 
-    # ── 释放原始数据 ──
-    del adata
-    gc.collect()
 
     # ── 保存元信息 ──
     meta = {
@@ -204,9 +193,7 @@ def preprocess(cfg, force=False):
         "n_slices": len(batches),
         "input_dim": int(slice_info_list[0]["n_genes"]),
         "patch_size": patch_size,
-        "n_patches": len(patch_index),
-        "slice_info": slice_info_list,
-        "patches": patch_index,
+        "slice_info": slice_info_list, # 存这个即可，不再需要 patches 列表
     }
 
     with open(meta_path, "w") as f:
@@ -219,15 +206,14 @@ def preprocess(cfg, force=False):
     print(f"预处理完成！")
     print(f"  缓存目录: {cache_dir}")
     print(f"  切片数: {meta['n_slices']}")
-    print(f"  总 patch 数: {meta['n_patches']}")
     print(f"  输入维度: {meta['input_dim']}")
     for info in slice_info_list:
-        print(f"    batch={info['batch']}: {info['n_cells']} cells, {info['n_patches']} patches")
+        print(f"    batch={info['batch']}: {info['n_cells']} cells,")
 
 
 if __name__ == "__main__":
     args = parse_args()
     cfg = load_config(args.config)
     preprocess(cfg, force=args.force)
-    cfg = load_config(args.config)
-    preprocess(cfg, force=args.force)
+
+# python /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/example/03_Han_Neuron/preprocess_03.py --config /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/config/03_config_hanMouse3D_v3.yaml

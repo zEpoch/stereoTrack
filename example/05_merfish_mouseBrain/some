@@ -1,0 +1,13 @@
+source /home/share/huadjyin/home/zhoutao3/envs/env_dgl.sh
+
+python /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/example/05_merfish_mouseBrain/01_preprocess.py \
+  --config /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/config/05_config_merfish_mouseBrain_3axes.yaml
+
+bash /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/example/05_merfish_mouseBrain/02_submit_train_3axes.sh
+
+
+python /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/example/05_merfish_mouseBrain/03_inference.py \
+  --config /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/config/05_config_merfish_mouseBrain_3axes.yaml \
+  --checkpoint /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/05_merfish_mouseBrain_mae_v1_3axes_train/checkpoints/last.ckpt \
+  --write-cell-layer \
+  --all-genes

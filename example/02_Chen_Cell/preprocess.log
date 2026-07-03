@@ -1,0 +1,1795 @@
+nohup: ignoring input
+公共基因数: 15280
+切片数: 119
+切片列表: ['T100.h5ad', 'T101.h5ad', 'T102.h5ad', 'T103.h5ad', 'T104.h5ad', 'T105.h5ad', 'T106.h5ad', 'T107.h5ad', 'T108.h5ad', 'T109.h5ad', 'T110.h5ad', 'T111.h5ad', 'T112.h5ad', 'T113.h5ad', 'T114.h5ad', 'T115.h5ad', 'T116.h5ad', 'T117.h5ad', 'T118.h5ad', 'T119.h5ad', 'T120.h5ad', 'T121.h5ad', 'T122.h5ad', 'T123.h5ad', 'T124.h5ad', 'T125.h5ad', 'T126.h5ad', 'T127.h5ad', 'T128.h5ad', 'T129.h5ad', 'T130.h5ad', 'T131.h5ad', 'T132.h5ad', 'T133.h5ad', 'T134.h5ad', 'T135.h5ad', 'T136.h5ad', 'T137.h5ad', 'T138.h5ad', 'T139.h5ad', 'T140.h5ad', 'T141.h5ad', 'T142.h5ad', 'T143.h5ad', 'T144.h5ad', 'T147.h5ad', 'T149.h5ad', 'T151.h5ad', 'T153.h5ad', 'T155.h5ad', 'T25.h5ad', 'T27.h5ad', 'T28.h5ad', 'T29.h5ad', 'T30.h5ad', 'T31.h5ad', 'T32.h5ad', 'T33.h5ad', 'T34.h5ad', 'T36.h5ad', 'T37.h5ad', 'T38.h5ad', 'T39.h5ad', 'T40.h5ad', 'T41.h5ad', 'T42.h5ad', 'T43.h5ad', 'T44.h5ad', 'T45.h5ad', 'T47.h5ad', 'T48.h5ad', 'T49.h5ad', 'T50.h5ad', 'T51.h5ad', 'T52.h5ad', 'T53.h5ad', 'T54.h5ad', 'T55.h5ad', 'T56.h5ad', 'T57.h5ad', 'T58.h5ad', 'T59.h5ad', 'T60.h5ad', 'T61.h5ad', 'T62.h5ad', 'T63.h5ad', 'T64.h5ad', 'T65.h5ad', 'T66.h5ad', 'T67.h5ad', 'T68.h5ad', 'T71.h5ad', 'T72.h5ad', 'T73.h5ad', 'T74.h5ad', 'T75.h5ad', 'T76.h5ad', 'T77.h5ad', 'T78.h5ad', 'T79.h5ad', 'T80.h5ad', 'T81.h5ad', 'T82.h5ad', 'T83.h5ad', 'T84.h5ad', 'T85.h5ad', 'T87.h5ad', 'T88.h5ad', 'T89.h5ad', 'T90.h5ad', 'T91.h5ad', 'T92.h5ad', 'T93.h5ad', 'T94.h5ad', 'T95.h5ad', 'T96.h5ad', 'T97.h5ad', 'T98.h5ad', 'T99.h5ad']
+
+============================================================
+  切片 1/119 (batch=T100.h5ad), 内存: 2.1 GB
+  细胞数: 313454, 基因数: 15280
+  [1/5] normalize ... done (3.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 313454 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 940295
+done (10.6s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 53.7s, 内存: 0.9 GB
+
+============================================================
+  切片 2/119 (batch=T101.h5ad), 内存: 1.6 GB
+  细胞数: 130083, 基因数: 15280
+  [1/5] normalize ... done (1.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 130083 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 390198
+done (3.2s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 26.4s, 内存: 0.9 GB
+
+============================================================
+  切片 3/119 (batch=T102.h5ad), 内存: 1.6 GB
+  细胞数: 205045, 基因数: 15280
+  [1/5] normalize ... done (1.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 205045 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 615049
+done (6.3s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 31.9s, 内存: 0.9 GB
+
+============================================================
+  切片 4/119 (batch=T103.h5ad), 内存: 2.8 GB
+  细胞数: 239875, 基因数: 15280
+  [1/5] normalize ... done (2.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 239875 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 719551
+done (6.8s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 59.1s, 内存: 0.9 GB
+
+============================================================
+  切片 5/119 (batch=T104.h5ad), 内存: 2.7 GB
+  细胞数: 423021, 基因数: 15280
+  [1/5] normalize ... done (2.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 423021 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1268976
+done (13.1s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 72.8s, 内存: 0.9 GB
+
+============================================================
+  切片 6/119 (batch=T105.h5ad), 内存: 2.0 GB
+  细胞数: 187704, 基因数: 15280
+  [1/5] normalize ... done (1.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 187704 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 563043
+done (4.7s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 38.9s, 内存: 0.9 GB
+
+============================================================
+  切片 7/119 (batch=T106.h5ad), 内存: 2.2 GB
+  细胞数: 326800, 基因数: 15280
+  [1/5] normalize ... done (2.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 326800 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 980290
+done (9.8s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 52.2s, 内存: 0.9 GB
+
+============================================================
+  切片 8/119 (batch=T107.h5ad), 内存: 1.9 GB
+  细胞数: 176354, 基因数: 15280
+  [1/5] normalize ... done (1.6s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 176354 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 528999
+done (5.4s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 42.6s, 内存: 0.9 GB
+
+============================================================
+  切片 9/119 (batch=T108.h5ad), 内存: 2.2 GB
+  细胞数: 342145, 基因数: 15280
+  [1/5] normalize ... done (3.6s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 342145 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1026355
+done (14.9s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 70.2s, 内存: 0.9 GB
+
+============================================================
+  切片 10/119 (batch=T109.h5ad), 内存: 2.3 GB
+  细胞数: 207525, 基因数: 15280
+  [1/5] normalize ... done (2.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 207525 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 622506
+done (6.3s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 48.1s, 内存: 0.9 GB
+
+============================================================
+  切片 11/119 (batch=T110.h5ad), 内存: 3.8 GB
+  细胞数: 484070, 基因数: 15280
+  [1/5] normalize ... done (4.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 484070 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1452109
+done (13.9s)
+  [3/5] preprocess_adj ... done (0.6s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 116.0s, 内存: 0.9 GB
+
+============================================================
+  切片 12/119 (batch=T111.h5ad), 内存: 1.8 GB
+  细胞数: 194351, 基因数: 15280
+  [1/5] normalize ... done (1.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 194351 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 582994
+done (5.9s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 39.6s, 内存: 0.9 GB
+
+============================================================
+  切片 13/119 (batch=T112.h5ad), 内存: 3.9 GB
+  细胞数: 482656, 基因数: 15280
+  [1/5] normalize ... done (7.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 482656 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1447864
+done (13.5s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 104.2s, 内存: 0.9 GB
+
+============================================================
+  切片 14/119 (batch=T113.h5ad), 内存: 1.8 GB
+  细胞数: 183312, 基因数: 15280
+  [1/5] normalize ... done (1.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 183312 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 549867
+done (5.0s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 36.8s, 内存: 0.9 GB
+
+============================================================
+  切片 15/119 (batch=T114.h5ad), 内存: 3.0 GB
+  细胞数: 447820, 基因数: 15280
+  [1/5] normalize ... done (4.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 447820 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1343358
+done (22.3s)
+  [3/5] preprocess_adj ... done (1.0s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 109.8s, 内存: 1.1 GB
+
+============================================================
+  切片 16/119 (batch=T115.h5ad), 内存: 2.1 GB
+  细胞数: 228615, 基因数: 15280
+  [1/5] normalize ... done (2.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 228615 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 685775
+done (8.5s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 44.3s, 内存: 0.9 GB
+
+============================================================
+  切片 17/119 (batch=T116.h5ad), 内存: 2.6 GB
+  细胞数: 432806, 基因数: 15280
+  [1/5] normalize ... done (2.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 432806 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1298323
+done (17.5s)
+  [3/5] preprocess_adj ... done (2.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 85.2s, 内存: 0.9 GB
+
+============================================================
+  切片 18/119 (batch=T117.h5ad), 内存: 2.1 GB
+  细胞数: 185723, 基因数: 15280
+  [1/5] normalize ... done (2.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 185723 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 557102
+done (6.8s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 53.3s, 内存: 0.9 GB
+
+============================================================
+  切片 19/119 (batch=T118.h5ad), 内存: 3.1 GB
+  细胞数: 483800, 基因数: 15280
+  [1/5] normalize ... done (3.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 483800 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1451308
+done (13.5s)
+  [3/5] preprocess_adj ... done (0.7s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 79.6s, 内存: 0.9 GB
+
+============================================================
+  切片 20/119 (batch=T119.h5ad), 内存: 2.3 GB
+  细胞数: 197533, 基因数: 15280
+  [1/5] normalize ... done (2.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 197533 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 592534
+done (5.1s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 44.8s, 内存: 0.9 GB
+
+============================================================
+  切片 21/119 (batch=T120.h5ad), 内存: 3.5 GB
+  细胞数: 393324, 基因数: 15280
+  [1/5] normalize ... done (4.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 393324 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1179873
+done (12.0s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 87.3s, 内存: 0.9 GB
+
+============================================================
+  切片 22/119 (batch=T121.h5ad), 内存: 1.8 GB
+  细胞数: 152617, 基因数: 15280
+  [1/5] normalize ... done (1.6s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 152617 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 457784
+done (4.4s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 31.6s, 内存: 0.9 GB
+
+============================================================
+  切片 23/119 (batch=T122.h5ad), 内存: 3.2 GB
+  细胞数: 377757, 基因数: 15280
+  [1/5] normalize ... done (3.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 377757 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1133191
+done (9.1s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 73.9s, 内存: 0.9 GB
+
+============================================================
+  切片 24/119 (batch=T123.h5ad), 内存: 2.0 GB
+  细胞数: 182213, 基因数: 15280
+  [1/5] normalize ... done (1.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 182213 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 546586
+done (5.7s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 38.7s, 内存: 0.9 GB
+
+============================================================
+  切片 25/119 (batch=T124.h5ad), 内存: 3.8 GB
+  细胞数: 455424, 基因数: 15280
+  [1/5] normalize ... done (4.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 455424 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1366192
+done (12.8s)
+  [3/5] preprocess_adj ... done (0.6s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 95.1s, 内存: 0.9 GB
+
+============================================================
+  切片 26/119 (batch=T125.h5ad), 内存: 2.1 GB
+  细胞数: 136741, 基因数: 15280
+  [1/5] normalize ... done (1.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 136741 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 410139
+done (3.8s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 40.4s, 内存: 0.9 GB
+
+============================================================
+  切片 27/119 (batch=T126.h5ad), 内存: 1.0 GB
+  细胞数: 32272, 基因数: 15280
+  [1/5] normalize ... done (0.5s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 32272 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 96778
+done (1.7s)
+  [3/5] preprocess_adj ... done (0.0s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 7.9s, 内存: 0.9 GB
+
+============================================================
+  切片 28/119 (batch=T127.h5ad), 内存: 1.9 GB
+  细胞数: 126420, 基因数: 15280
+  [1/5] normalize ... done (1.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 126420 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 379196
+done (4.0s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 34.1s, 内存: 0.9 GB
+
+============================================================
+  切片 29/119 (batch=T128.h5ad), 内存: 1.5 GB
+  细胞数: 117120, 基因数: 15280
+  [1/5] normalize ... done (1.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 117120 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 351299
+done (3.0s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 22.6s, 内存: 0.9 GB
+
+============================================================
+  切片 30/119 (batch=T129.h5ad), 内存: 1.8 GB
+  细胞数: 129154, 基因数: 15280
+  [1/5] normalize ... done (1.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 129154 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 387389
+done (4.1s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 30.6s, 内存: 0.9 GB
+
+============================================================
+  切片 31/119 (batch=T130.h5ad), 内存: 1.6 GB
+  细胞数: 95989, 基因数: 15280
+  [1/5] normalize ... done (1.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 95989 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 287875
+done (2.7s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 23.3s, 内存: 0.9 GB
+
+============================================================
+  切片 32/119 (batch=T131.h5ad), 内存: 2.4 GB
+  细胞数: 156024, 基因数: 15280
+  [1/5] normalize ... done (2.5s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 156024 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 467975
+done (4.3s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 45.4s, 内存: 0.9 GB
+
+============================================================
+  切片 33/119 (batch=T132.h5ad), 内存: 2.6 GB
+  细胞数: 227914, 基因数: 15280
+  [1/5] normalize ... done (2.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 227914 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 683696
+done (6.8s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 55.8s, 内存: 0.9 GB
+
+============================================================
+  切片 34/119 (batch=T133.h5ad), 内存: 1.5 GB
+  细胞数: 104329, 基因数: 15280
+  [1/5] normalize ... done (1.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 104329 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 312928
+done (4.2s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 23.0s, 内存: 0.9 GB
+
+============================================================
+  切片 35/119 (batch=T134.h5ad), 内存: 3.3 GB
+  细胞数: 259903, 基因数: 15280
+  [1/5] normalize ... done (3.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 259903 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 779652
+done (8.7s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 72.9s, 内存: 0.9 GB
+
+============================================================
+  切片 36/119 (batch=T135.h5ad), 内存: 1.7 GB
+  细胞数: 114958, 基因数: 15280
+  [1/5] normalize ... done (1.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 114958 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 344811
+done (2.7s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 26.1s, 内存: 0.9 GB
+
+============================================================
+  切片 37/119 (batch=T136.h5ad), 内存: 2.5 GB
+  细胞数: 134776, 基因数: 15280
+  [1/5] normalize ... done (2.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 134776 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 404285
+done (3.7s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 41.9s, 内存: 0.9 GB
+
+============================================================
+  切片 38/119 (batch=T137.h5ad), 内存: 1.9 GB
+  细胞数: 114165, 基因数: 15280
+  [1/5] normalize ... done (1.5s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 114165 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 342447
+done (3.0s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 28.8s, 内存: 0.9 GB
+
+============================================================
+  切片 39/119 (batch=T138.h5ad), 内存: 1.6 GB
+  细胞数: 96807, 基因数: 15280
+  [1/5] normalize ... done (1.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 96807 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 290328
+done (2.4s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 21.0s, 内存: 0.9 GB
+
+============================================================
+  切片 40/119 (batch=T139.h5ad), 内存: 1.7 GB
+  细胞数: 98505, 基因数: 15280
+  [1/5] normalize ... done (1.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 98505 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 295431
+done (2.6s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 25.5s, 内存: 0.9 GB
+
+============================================================
+  切片 41/119 (batch=T140.h5ad), 内存: 1.7 GB
+  细胞数: 96445, 基因数: 15280
+  [1/5] normalize ... done (1.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 96445 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 289279
+done (2.5s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 23.8s, 内存: 0.9 GB
+
+============================================================
+  切片 42/119 (batch=T141.h5ad), 内存: 2.0 GB
+  细胞数: 123305, 基因数: 15280
+  [1/5] normalize ... done (1.5s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 123305 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 369844
+done (3.0s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 31.2s, 内存: 0.9 GB
+
+============================================================
+  切片 43/119 (batch=T142.h5ad), 内存: 1.5 GB
+  细胞数: 73782, 基因数: 15280
+  [1/5] normalize ... done (1.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 73782 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 221274
+done (2.1s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 18.8s, 内存: 0.9 GB
+
+============================================================
+  切片 44/119 (batch=T143.h5ad), 内存: 2.2 GB
+  细胞数: 97916, 基因数: 15280
+  [1/5] normalize ... done (1.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 97916 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 293674
+done (2.6s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 37.1s, 内存: 0.9 GB
+
+============================================================
+  切片 45/119 (batch=T144.h5ad), 内存: 1.8 GB
+  细胞数: 82355, 基因数: 15280
+  [1/5] normalize ... done (1.5s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 82355 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 247004
+done (2.2s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 25.5s, 内存: 0.9 GB
+
+============================================================
+  切片 46/119 (batch=T147.h5ad), 内存: 1.1 GB
+  细胞数: 37766, 基因数: 15280
+  [1/5] normalize ... done (0.5s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 37766 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 113246
+done (1.2s)
+  [3/5] preprocess_adj ... done (0.0s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 8.3s, 内存: 0.9 GB
+
+============================================================
+  切片 47/119 (batch=T149.h5ad), 内存: 1.4 GB
+  细胞数: 50213, 基因数: 15280
+  [1/5] normalize ... done (1.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 50213 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 150591
+done (1.4s)
+  [3/5] preprocess_adj ... done (0.0s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 19.0s, 内存: 0.9 GB
+
+============================================================
+  切片 48/119 (batch=T151.h5ad), 内存: 1.6 GB
+  细胞数: 53616, 基因数: 15280
+  [1/5] normalize ... done (1.5s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 53616 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 160800
+done (1.9s)
+  [3/5] preprocess_adj ... done (0.0s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 22.7s, 内存: 0.9 GB
+
+============================================================
+  切片 49/119 (batch=T153.h5ad), 内存: 1.2 GB
+  细胞数: 42104, 基因数: 15280
+  [1/5] normalize ... done (1.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 42104 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 126263
+done (1.9s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 13.1s, 内存: 0.9 GB
+
+============================================================
+  切片 50/119 (batch=T155.h5ad), 内存: 1.1 GB
+  细胞数: 17613, 基因数: 15280
+  [1/5] normalize ... done (0.6s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 17613 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 52811
+done (0.7s)
+  [3/5] preprocess_adj ... done (0.0s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 8.8s, 内存: 0.9 GB
+
+============================================================
+  切片 51/119 (batch=T25.h5ad), 内存: 3.7 GB
+  细胞数: 387095, 基因数: 15280
+  [1/5] normalize ... done (4.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 387095 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1161224
+done (15.0s)
+  [3/5] preprocess_adj ... done (0.5s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 103.9s, 内存: 1.0 GB
+
+============================================================
+  切片 52/119 (batch=T27.h5ad), 内存: 2.8 GB
+  细胞数: 276593, 基因数: 15280
+  [1/5] normalize ... done (3.5s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 276593 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 829698
+done (10.2s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 73.0s, 内存: 0.9 GB
+
+============================================================
+  切片 53/119 (batch=T28.h5ad), 内存: 1.9 GB
+  细胞数: 198690, 基因数: 15280
+  [1/5] normalize ... done (2.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 198690 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 595960
+done (9.7s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 49.3s, 内存: 0.9 GB
+
+============================================================
+  切片 54/119 (batch=T29.h5ad), 内存: 2.6 GB
+  细胞数: 317861, 基因数: 15280
+  [1/5] normalize ... done (2.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 317861 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 953503
+done (9.5s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 64.6s, 内存: 0.9 GB
+
+============================================================
+  切片 55/119 (batch=T30.h5ad), 内存: 5.3 GB
+  细胞数: 398699, 基因数: 15280
+  [1/5] normalize ... done (9.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 398699 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1196019
+done (12.4s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 152.4s, 内存: 1.1 GB
+
+============================================================
+  切片 56/119 (batch=T31.h5ad), 内存: 3.7 GB
+  细胞数: 382189, 基因数: 15280
+  [1/5] normalize ... done (4.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 382189 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1146475
+done (12.9s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 87.5s, 内存: 1.0 GB
+
+============================================================
+  切片 57/119 (batch=T32.h5ad), 内存: 4.3 GB
+  细胞数: 393230, 基因数: 15280
+  [1/5] normalize ... done (4.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 393230 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1179607
+done (11.5s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 98.3s, 内存: 1.0 GB
+
+============================================================
+  切片 58/119 (batch=T33.h5ad), 内存: 5.0 GB
+  细胞数: 393838, 基因数: 15280
+  [1/5] normalize ... done (5.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 393838 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1181429
+done (11.7s)
+  [3/5] preprocess_adj ... done (0.5s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 116.5s, 内存: 1.1 GB
+
+============================================================
+  切片 59/119 (batch=T34.h5ad), 内存: 3.9 GB
+  细胞数: 401128, 基因数: 15280
+  [1/5] normalize ... done (4.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 401128 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1203275
+done (11.0s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 88.6s, 内存: 1.0 GB
+
+============================================================
+  切片 60/119 (batch=T36.h5ad), 内存: 5.8 GB
+  细胞数: 460176, 基因数: 15280
+  [1/5] normalize ... done (7.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 460176 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1380438
+done (14.7s)
+  [3/5] preprocess_adj ... done (0.5s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 139.3s, 内存: 1.1 GB
+
+============================================================
+  切片 61/119 (batch=T37.h5ad), 内存: 2.3 GB
+  细胞数: 242347, 基因数: 15280
+  [1/5] normalize ... done (1.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 242347 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 726950
+done (6.4s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 47.2s, 内存: 1.0 GB
+
+============================================================
+  切片 62/119 (batch=T38.h5ad), 内存: 3.5 GB
+  细胞数: 270032, 基因数: 15280
+  [1/5] normalize ... done (3.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 270032 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 809996
+done (7.2s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 71.2s, 内存: 1.0 GB
+
+============================================================
+  切片 63/119 (batch=T39.h5ad), 内存: 4.0 GB
+  细胞数: 378728, 基因数: 15280
+  [1/5] normalize ... done (4.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 378728 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1136083
+done (14.3s)
+  [3/5] preprocess_adj ... done (0.5s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 95.1s, 内存: 1.0 GB
+
+============================================================
+  切片 64/119 (batch=T40.h5ad), 内存: 2.8 GB
+  细胞数: 323749, 基因数: 15280
+  [1/5] normalize ... done (2.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 323749 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 971175
+done (8.9s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 60.9s, 内存: 1.1 GB
+
+============================================================
+  切片 65/119 (batch=T41.h5ad), 内存: 2.3 GB
+  细胞数: 222684, 基因数: 15280
+  [1/5] normalize ... done (1.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 222684 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 667934
+done (5.4s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 43.1s, 内存: 1.1 GB
+
+============================================================
+  切片 66/119 (batch=T42.h5ad), 内存: 4.6 GB
+  细胞数: 411155, 基因数: 15280
+  [1/5] normalize ... done (5.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 411155 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1233369
+done (11.0s)
+  [3/5] preprocess_adj ... done (0.5s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 103.6s, 内存: 1.1 GB
+
+============================================================
+  切片 67/119 (batch=T43.h5ad), 内存: 2.9 GB
+  细胞数: 314377, 基因数: 15280
+  [1/5] normalize ... done (2.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 314377 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 943021
+done (8.2s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 62.0s, 内存: 1.1 GB
+
+============================================================
+  切片 68/119 (batch=T44.h5ad), 内存: 4.0 GB
+  细胞数: 388986, 基因数: 15280
+  [1/5] normalize ... done (4.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 388986 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1166869
+done (10.6s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 91.2s, 内存: 1.1 GB
+
+============================================================
+  切片 69/119 (batch=T45.h5ad), 内存: 2.9 GB
+  细胞数: 207549, 基因数: 15280
+  [1/5] normalize ... done (2.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 207549 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 622535
+done (5.5s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 53.3s, 内存: 1.1 GB
+
+============================================================
+  切片 70/119 (batch=T47.h5ad), 内存: 2.8 GB
+  细胞数: 244202, 基因数: 15280
+  [1/5] normalize ... done (3.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 244202 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 732472
+done (6.7s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 61.3s, 内存: 1.1 GB
+
+============================================================
+  切片 71/119 (batch=T48.h5ad), 内存: 3.9 GB
+  细胞数: 370682, 基因数: 15280
+  [1/5] normalize ... done (4.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 370682 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1111955
+done (9.8s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 87.6s, 内存: 1.0 GB
+
+============================================================
+  切片 72/119 (batch=T49.h5ad), 内存: 2.8 GB
+  细胞数: 288301, 基因数: 15280
+  [1/5] normalize ... done (3.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 288301 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 864804
+done (7.6s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 61.2s, 内存: 1.0 GB
+
+============================================================
+  切片 73/119 (batch=T50.h5ad), 内存: 4.3 GB
+  细胞数: 382380, 基因数: 15280
+  [1/5] normalize ... done (4.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 382380 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1147032
+done (11.7s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 99.2s, 内存: 1.0 GB
+
+============================================================
+  切片 74/119 (batch=T51.h5ad), 内存: 1.8 GB
+  细胞数: 149982, 基因数: 15280
+  [1/5] normalize ... done (1.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 149982 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 449848
+done (4.2s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 28.6s, 内存: 1.0 GB
+
+============================================================
+  切片 75/119 (batch=T52.h5ad), 内存: 4.5 GB
+  细胞数: 414928, 基因数: 15280
+  [1/5] normalize ... done (4.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 414928 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1244676
+done (11.1s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 100.5s, 内存: 1.1 GB
+
+============================================================
+  切片 76/119 (batch=T53.h5ad), 内存: 3.0 GB
+  细胞数: 279672, 基因数: 15280
+  [1/5] normalize ... done (2.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 279672 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 838909
+done (7.4s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 63.8s, 内存: 1.1 GB
+
+============================================================
+  切片 77/119 (batch=T54.h5ad), 内存: 3.5 GB
+  细胞数: 468077, 基因数: 15280
+  [1/5] normalize ... done (3.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 468077 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1404133
+done (12.6s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 86.0s, 内存: 1.1 GB
+
+============================================================
+  切片 78/119 (batch=T55.h5ad), 内存: 2.4 GB
+  细胞数: 223331, 基因数: 15280
+  [1/5] normalize ... done (2.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 223331 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 669902
+done (5.3s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 43.7s, 内存: 1.1 GB
+
+============================================================
+  切片 79/119 (batch=T56.h5ad), 内存: 3.4 GB
+  细胞数: 423275, 基因数: 15280
+  [1/5] normalize ... done (3.6s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 423275 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1269721
+done (12.3s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 79.8s, 内存: 1.1 GB
+
+============================================================
+  切片 80/119 (batch=T57.h5ad), 内存: 2.4 GB
+  细胞数: 212185, 基因数: 15280
+  [1/5] normalize ... done (1.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 212185 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 636464
+done (5.6s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 42.4s, 内存: 1.1 GB
+
+============================================================
+  切片 81/119 (batch=T58.h5ad), 内存: 2.9 GB
+  细胞数: 331150, 基因数: 15280
+  [1/5] normalize ... done (2.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 331150 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 993337
+done (8.9s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 60.4s, 内存: 1.1 GB
+
+============================================================
+  切片 82/119 (batch=T59.h5ad), 内存: 2.3 GB
+  细胞数: 215426, 基因数: 15280
+  [1/5] normalize ... done (2.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 215426 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 646190
+done (6.1s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 43.4s, 内存: 1.1 GB
+
+============================================================
+  切片 83/119 (batch=T60.h5ad), 内存: 3.1 GB
+  细胞数: 362657, 基因数: 15280
+  [1/5] normalize ... done (2.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 362657 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1087846
+done (9.1s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 70.2s, 内存: 1.0 GB
+
+============================================================
+  切片 84/119 (batch=T61.h5ad), 内存: 2.1 GB
+  细胞数: 219853, 基因数: 15280
+  [1/5] normalize ... done (1.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 219853 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 659459
+done (6.4s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 39.7s, 内存: 1.0 GB
+
+============================================================
+  切片 85/119 (batch=T62.h5ad), 内存: 2.3 GB
+  细胞数: 301328, 基因数: 15280
+  [1/5] normalize ... done (2.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 301328 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 903899
+done (8.4s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 50.3s, 内存: 1.0 GB
+
+============================================================
+  切片 86/119 (batch=T63.h5ad), 内存: 2.3 GB
+  细胞数: 203770, 基因数: 15280
+  [1/5] normalize ... done (2.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 203770 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 611213
+done (4.8s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 40.9s, 内存: 1.0 GB
+
+============================================================
+  切片 87/119 (batch=T64.h5ad), 内存: 4.8 GB
+  细胞数: 528264, 基因数: 15280
+  [1/5] normalize ... done (5.2s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 528264 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1584663
+done (13.3s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 115.1s, 内存: 1.1 GB
+
+============================================================
+  切片 88/119 (batch=T65.h5ad), 内存: 3.4 GB
+  细胞数: 300319, 基因数: 15280
+  [1/5] normalize ... done (3.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 300319 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 900849
+done (7.9s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 71.7s, 内存: 1.0 GB
+
+============================================================
+  切片 89/119 (batch=T66.h5ad), 内存: 4.1 GB
+  细胞数: 492701, 基因数: 15280
+  [1/5] normalize ... done (4.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 492701 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1478007
+done (13.7s)
+  [3/5] preprocess_adj ... done (0.6s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 100.4s, 内存: 1.1 GB
+
+============================================================
+  切片 90/119 (batch=T67.h5ad), 内存: 2.8 GB
+  细胞数: 270616, 基因数: 15280
+  [1/5] normalize ... done (2.6s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 270616 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 811726
+done (6.7s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 58.2s, 内存: 1.0 GB
+
+============================================================
+  切片 91/119 (batch=T68.h5ad), 内存: 4.4 GB
+  细胞数: 486936, 基因数: 15280
+  [1/5] normalize ... done (5.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 486936 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1460693
+done (13.1s)
+  [3/5] preprocess_adj ... done (0.6s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 106.5s, 内存: 1.1 GB
+
+============================================================
+  切片 92/119 (batch=T71.h5ad), 内存: 1.9 GB
+  细胞数: 165649, 基因数: 15280
+  [1/5] normalize ... done (1.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 165649 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 496877
+done (4.2s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 29.5s, 内存: 1.0 GB
+
+============================================================
+  切片 93/119 (batch=T72.h5ad), 内存: 3.1 GB
+  细胞数: 399654, 基因数: 15280
+  [1/5] normalize ... done (3.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 399654 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1198885
+done (10.3s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 71.9s, 内存: 1.0 GB
+
+============================================================
+  切片 94/119 (batch=T73.h5ad), 内存: 1.8 GB
+  细胞数: 154858, 基因数: 15280
+  [1/5] normalize ... done (1.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 154858 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 464474
+done (3.8s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 26.8s, 内存: 1.0 GB
+
+============================================================
+  切片 95/119 (batch=T74.h5ad), 内存: 2.3 GB
+  细胞数: 313044, 基因数: 15280
+  [1/5] normalize ... done (2.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 313044 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 939051
+done (8.0s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 49.1s, 内存: 1.0 GB
+
+============================================================
+  切片 96/119 (batch=T75.h5ad), 内存: 2.3 GB
+  细胞数: 228692, 基因数: 15280
+  [1/5] normalize ... done (1.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 228692 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 685977
+done (5.7s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 41.8s, 内存: 1.0 GB
+
+============================================================
+  切片 97/119 (batch=T76.h5ad), 内存: 2.1 GB
+  细胞数: 269252, 基因数: 15280
+  [1/5] normalize ... done (1.5s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 269252 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 807700
+done (7.0s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 39.8s, 内存: 1.0 GB
+
+============================================================
+  切片 98/119 (batch=T77.h5ad), 内存: 2.4 GB
+  细胞数: 216862, 基因数: 15280
+  [1/5] normalize ... done (2.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 216862 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 650508
+done (5.5s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 43.0s, 内存: 1.0 GB
+
+============================================================
+  切片 99/119 (batch=T78.h5ad), 内存: 2.9 GB
+  细胞数: 400172, 基因数: 15280
+  [1/5] normalize ... done (3.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 400172 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1200436
+done (10.4s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 65.4s, 内存: 1.0 GB
+
+============================================================
+  切片 100/119 (batch=T79.h5ad), 内存: 2.7 GB
+  细胞数: 263549, 基因数: 15280
+  [1/5] normalize ... done (2.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 263549 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 790535
+done (6.4s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 53.5s, 内存: 1.0 GB
+
+============================================================
+  切片 101/119 (batch=T80.h5ad), 内存: 3.2 GB
+  细胞数: 406020, 基因数: 15280
+  [1/5] normalize ... done (3.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 406020 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1217968
+done (10.4s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 74.9s, 内存: 1.1 GB
+
+============================================================
+  切片 102/119 (batch=T81.h5ad), 内存: 2.4 GB
+  细胞数: 219326, 基因数: 15280
+  [1/5] normalize ... done (2.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 219326 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 657907
+done (6.7s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 44.8s, 内存: 1.1 GB
+
+============================================================
+  切片 103/119 (batch=T82.h5ad), 内存: 3.3 GB
+  细胞数: 426326, 基因数: 15280
+  [1/5] normalize ... done (3.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 426326 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1278874
+done (11.8s)
+  [3/5] preprocess_adj ... done (0.4s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 77.7s, 内存: 1.1 GB
+
+============================================================
+  切片 104/119 (batch=T83.h5ad), 内存: 2.8 GB
+  细胞数: 274748, 基因数: 15280
+  [1/5] normalize ... done (2.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 274748 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 824163
+done (6.6s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 55.2s, 内存: 1.1 GB
+
+============================================================
+  切片 105/119 (batch=T84.h5ad), 内存: 2.4 GB
+  细胞数: 344169, 基因数: 15280
+  [1/5] normalize ... done (2.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 344169 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1032442
+done (9.7s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 52.0s, 内存: 1.1 GB
+
+============================================================
+  切片 106/119 (batch=T85.h5ad), 内存: 2.3 GB
+  细胞数: 204500, 基因数: 15280
+  [1/5] normalize ... done (2.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 204500 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 613418
+done (5.7s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 42.5s, 内存: 1.1 GB
+
+============================================================
+  切片 107/119 (batch=T87.h5ad), 内存: 1.7 GB
+  细胞数: 151892, 基因数: 15280
+  [1/5] normalize ... done (1.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 151892 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 455599
+done (6.9s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 41.7s, 内存: 1.1 GB
+
+============================================================
+  切片 108/119 (batch=T88.h5ad), 内存: 1.7 GB
+  细胞数: 185793, 基因数: 15280
+  [1/5] normalize ... done (1.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 185793 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 557308
+done (5.0s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 29.0s, 内存: 1.1 GB
+
+============================================================
+  切片 109/119 (batch=T89.h5ad), 内存: 2.2 GB
+  细胞数: 207964, 基因数: 15280
+  [1/5] normalize ... done (2.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 207964 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 623813
+done (6.8s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 44.5s, 内存: 1.1 GB
+
+============================================================
+  切片 110/119 (batch=T90.h5ad), 内存: 3.3 GB
+  细胞数: 414430, 基因数: 15280
+  [1/5] normalize ... done (3.9s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 414430 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1243184
+done (13.2s)
+  [3/5] preprocess_adj ... done (1.0s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 91.6s, 内存: 1.1 GB
+
+============================================================
+  切片 111/119 (batch=T91.h5ad), 内存: 1.9 GB
+  细胞数: 162106, 基因数: 15280
+  [1/5] normalize ... done (1.5s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 162106 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 486240
+done (6.0s)
+  [3/5] preprocess_adj ... done (0.1s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 40.3s, 内存: 1.1 GB
+
+============================================================
+  切片 112/119 (batch=T92.h5ad), 内存: 1.7 GB
+  细胞数: 228558, 基因数: 15280
+  [1/5] normalize ... done (2.7s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 228558 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 685623
+done (9.7s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 38.3s, 内存: 1.0 GB
+
+============================================================
+  切片 113/119 (batch=T93.h5ad), 内存: 2.1 GB
+  细胞数: 179190, 基因数: 15280
+  [1/5] normalize ... done (2.3s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 179190 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 537492
+done (7.3s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 54.8s, 内存: 1.0 GB
+
+============================================================
+  切片 114/119 (batch=T94.h5ad), 内存: 2.1 GB
+  细胞数: 283624, 基因数: 15280
+  [1/5] normalize ... done (3.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 283624 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 850788
+done (12.0s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 74.2s, 内存: 1.0 GB
+
+============================================================
+  切片 115/119 (batch=T95.h5ad), 内存: 2.1 GB
+  细胞数: 200090, 基因数: 15280
+  [1/5] normalize ... done (2.4s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 200090 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 600208
+done (9.0s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 75.6s, 内存: 1.0 GB
+
+============================================================
+  切片 116/119 (batch=T96.h5ad), 内存: 2.5 GB
+  细胞数: 365800, 基因数: 15280
+  [1/5] normalize ... done (5.1s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 365800 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1097337
+done (15.4s)
+  [3/5] preprocess_adj ... done (0.3s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 75.1s, 内存: 1.0 GB
+
+============================================================
+  切片 117/119 (batch=T97.h5ad), 内存: 2.1 GB
+  细胞数: 204678, 基因数: 15280
+  [1/5] normalize ... done (2.0s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 204678 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 613976
+done (6.7s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 51.0s, 内存: 1.0 GB
+
+============================================================
+  切片 118/119 (batch=T98.h5ad), 内存: 2.6 GB
+  细胞数: 361621, 基因数: 15280
+  [1/5] normalize ... done (2.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 361621 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 1084780
+done (13.9s)
+  [3/5] preprocess_adj ... done (1.0s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 69.6s, 内存: 1.0 GB
+
+============================================================
+  切片 119/119 (batch=T99.h5ad), 内存: 1.8 GB
+  细胞数: 149777, 基因数: 15280
+  [1/5] normalize ... done (1.8s)
+  [2/5] construct_graph ... /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/stereotrack/process.py:20: UserWarning: construct_graph: 检测到退化维度 [2]（方差为0），已自动丢弃，仅使用维度 [0, 1] 构建空间图。
+  warnings.warn(
+    Delaunay: 149777 点, 维度 2 /home/share/huadjyin/home/zhoutao3/.conda/envs/stereotrack_2/lib/python3.10/site-packages/scipy/sparse/_index.py:146: SparseEfficiencyWarning: Changing the sparsity structure of a csr_matrix is expensive. lil_matrix is more efficient.
+  self._set_arrayXarray(i, j, x)
+→ 边数: 449255
+done (4.2s)
+  [3/5] preprocess_adj ... done (0.2s)
+  [4/5] get_spatial_input ... done (0.0s)
+  [5/5] 提取特征 + 分 patch 保存 ...   总耗时: 38.2s, 内存: 1.0 GB
+
+============================================================
+预处理完成！
+  缓存目录: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/07_macaque_brain_mae/cache
+  切片数: 119
+  输入维度: 15280
+    batch=T100.h5ad: 313454 cells,
+    batch=T101.h5ad: 130083 cells,
+    batch=T102.h5ad: 205045 cells,
+    batch=T103.h5ad: 239875 cells,
+    batch=T104.h5ad: 423021 cells,
+    batch=T105.h5ad: 187704 cells,
+    batch=T106.h5ad: 326800 cells,
+    batch=T107.h5ad: 176354 cells,
+    batch=T108.h5ad: 342145 cells,
+    batch=T109.h5ad: 207525 cells,
+    batch=T110.h5ad: 484070 cells,
+    batch=T111.h5ad: 194351 cells,
+    batch=T112.h5ad: 482656 cells,
+    batch=T113.h5ad: 183312 cells,
+    batch=T114.h5ad: 447820 cells,
+    batch=T115.h5ad: 228615 cells,
+    batch=T116.h5ad: 432806 cells,
+    batch=T117.h5ad: 185723 cells,
+    batch=T118.h5ad: 483800 cells,
+    batch=T119.h5ad: 197533 cells,
+    batch=T120.h5ad: 393324 cells,
+    batch=T121.h5ad: 152617 cells,
+    batch=T122.h5ad: 377757 cells,
+    batch=T123.h5ad: 182213 cells,
+    batch=T124.h5ad: 455424 cells,
+    batch=T125.h5ad: 136741 cells,
+    batch=T126.h5ad: 32272 cells,
+    batch=T127.h5ad: 126420 cells,
+    batch=T128.h5ad: 117120 cells,
+    batch=T129.h5ad: 129154 cells,
+    batch=T130.h5ad: 95989 cells,
+    batch=T131.h5ad: 156024 cells,
+    batch=T132.h5ad: 227914 cells,
+    batch=T133.h5ad: 104329 cells,
+    batch=T134.h5ad: 259903 cells,
+    batch=T135.h5ad: 114958 cells,
+    batch=T136.h5ad: 134776 cells,
+    batch=T137.h5ad: 114165 cells,
+    batch=T138.h5ad: 96807 cells,
+    batch=T139.h5ad: 98505 cells,
+    batch=T140.h5ad: 96445 cells,
+    batch=T141.h5ad: 123305 cells,
+    batch=T142.h5ad: 73782 cells,
+    batch=T143.h5ad: 97916 cells,
+    batch=T144.h5ad: 82355 cells,
+    batch=T147.h5ad: 37766 cells,
+    batch=T149.h5ad: 50213 cells,
+    batch=T151.h5ad: 53616 cells,
+    batch=T153.h5ad: 42104 cells,
+    batch=T155.h5ad: 17613 cells,
+    batch=T25.h5ad: 387095 cells,
+    batch=T27.h5ad: 276593 cells,
+    batch=T28.h5ad: 198690 cells,
+    batch=T29.h5ad: 317861 cells,
+    batch=T30.h5ad: 398699 cells,
+    batch=T31.h5ad: 382189 cells,
+    batch=T32.h5ad: 393230 cells,
+    batch=T33.h5ad: 393838 cells,
+    batch=T34.h5ad: 401128 cells,
+    batch=T36.h5ad: 460176 cells,
+    batch=T37.h5ad: 242347 cells,
+    batch=T38.h5ad: 270032 cells,
+    batch=T39.h5ad: 378728 cells,
+    batch=T40.h5ad: 323749 cells,
+    batch=T41.h5ad: 222684 cells,
+    batch=T42.h5ad: 411155 cells,
+    batch=T43.h5ad: 314377 cells,
+    batch=T44.h5ad: 388986 cells,
+    batch=T45.h5ad: 207549 cells,
+    batch=T47.h5ad: 244202 cells,
+    batch=T48.h5ad: 370682 cells,
+    batch=T49.h5ad: 288301 cells,
+    batch=T50.h5ad: 382380 cells,
+    batch=T51.h5ad: 149982 cells,
+    batch=T52.h5ad: 414928 cells,
+    batch=T53.h5ad: 279672 cells,
+    batch=T54.h5ad: 468077 cells,
+    batch=T55.h5ad: 223331 cells,
+    batch=T56.h5ad: 423275 cells,
+    batch=T57.h5ad: 212185 cells,
+    batch=T58.h5ad: 331150 cells,
+    batch=T59.h5ad: 215426 cells,
+    batch=T60.h5ad: 362657 cells,
+    batch=T61.h5ad: 219853 cells,
+    batch=T62.h5ad: 301328 cells,
+    batch=T63.h5ad: 203770 cells,
+    batch=T64.h5ad: 528264 cells,
+    batch=T65.h5ad: 300319 cells,
+    batch=T66.h5ad: 492701 cells,
+    batch=T67.h5ad: 270616 cells,
+    batch=T68.h5ad: 486936 cells,
+    batch=T71.h5ad: 165649 cells,
+    batch=T72.h5ad: 399654 cells,
+    batch=T73.h5ad: 154858 cells,
+    batch=T74.h5ad: 313044 cells,
+    batch=T75.h5ad: 228692 cells,
+    batch=T76.h5ad: 269252 cells,
+    batch=T77.h5ad: 216862 cells,
+    batch=T78.h5ad: 400172 cells,
+    batch=T79.h5ad: 263549 cells,
+    batch=T80.h5ad: 406020 cells,
+    batch=T81.h5ad: 219326 cells,
+    batch=T82.h5ad: 426326 cells,
+    batch=T83.h5ad: 274748 cells,
+    batch=T84.h5ad: 344169 cells,
+    batch=T85.h5ad: 204500 cells,
+    batch=T87.h5ad: 151892 cells,
+    batch=T88.h5ad: 185793 cells,
+    batch=T89.h5ad: 207964 cells,
+    batch=T90.h5ad: 414430 cells,
+    batch=T91.h5ad: 162106 cells,
+    batch=T92.h5ad: 228558 cells,
+    batch=T93.h5ad: 179190 cells,
+    batch=T94.h5ad: 283624 cells,
+    batch=T95.h5ad: 200090 cells,
+    batch=T96.h5ad: 365800 cells,
+    batch=T97.h5ad: 204678 cells,
+    batch=T98.h5ad: 361621 cells,
+    batch=T99.h5ad: 149777 cells,
