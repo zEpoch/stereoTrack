@@ -1,4 +1,3 @@
-*.ipynb
 out/
 test/
 .ipynb_checkpoints
