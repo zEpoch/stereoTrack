@@ -1,0 +1,41 @@
+from .core import (
+    Trajectory3DResult,
+    build_edge_distance_graph,
+    build_gap_aware_topology,
+    build_geometry_topology_3d,
+    build_streaming_mutual_knn_topology_3d,
+    compute_pseudotime,
+    compute_transport_matrix,
+    compute_velocity_on_topology,
+    interpolate_to_grid,
+    map_backbone_to_full,
+    run_embedding_trajectory_3d,
+    sample_backbone_indices,
+)
+from .visual import (
+    plot_trajectory_k3d,
+    plot_trajectory_plotly_cones,
+    plot_trajectory_plotly_streamtube,
+    plot_trajectory_streamlines_3d,
+    plot_trajectory_streamplot_projections,
+)
+
+__all__ = [
+    "Trajectory3DResult",
+    "build_edge_distance_graph",
+    "build_gap_aware_topology",
+    "build_geometry_topology_3d",
+    "build_streaming_mutual_knn_topology_3d",
+    "compute_pseudotime",
+    "compute_transport_matrix",
+    "compute_velocity_on_topology",
+    "interpolate_to_grid",
+    "map_backbone_to_full",
+    "plot_trajectory_k3d",
+    "plot_trajectory_plotly_cones",
+    "plot_trajectory_plotly_streamtube",
+    "plot_trajectory_streamlines_3d",
+    "plot_trajectory_streamplot_projections",
+    "run_embedding_trajectory_3d",
+    "sample_backbone_indices",
+]

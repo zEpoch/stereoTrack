@@ -1,7 +1,11 @@
 import numpy as np
 import scipy.sparse as sp
 from scipy.sparse import csr_matrix
-from scipy.spatial import Delaunay, QhullError, cKDTree
+from scipy.spatial import Delaunay, cKDTree
+try:
+    from scipy.spatial import QhullError
+except ImportError:
+    from scipy.spatial.qhull import QhullError
 import warnings
 def contains_only_integers(arr):
     return np.all(arr % 1 == 0)

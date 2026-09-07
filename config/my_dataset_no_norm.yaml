@@ -1,0 +1,55 @@
+paths:
+  data_path: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/my_dataset_no_norm/input_h5ad
+  input_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/my_dataset_no_norm
+  save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/my_dataset_no_norm_train
+
+preprocess:
+  spatial_key: ccf
+  source_spatial_key: spatial
+  expression_layer:
+  graph_method: knn
+  n_neighbors: 12
+  knn_chunk_size: 100000
+  patch_axes: 3
+  patch_mode: axis
+  min_counts: 0
+  skip_normalize_log_scale: true
+  target_sum: 10000.0
+  max_value: 10.0
+  compress_npz: false
+  include_stems:
+    - Mouse_brain_cell_bin
+
+model:
+  hidden_dim: 256
+  latent_dim: 64
+  dropout_rate: 0.1
+  gene_mask_ratio: 0.5
+  cell_mask_ratio: 0.2
+  n_encoder_layers: 2
+  n_decoder_layers: 2
+  niche_self_weight: 0.1
+
+training:
+  patch_size: 4096
+  n_epochs: 50
+  learning_rate: 2e-4
+  warmup_epochs: 5
+  patience: 20
+  grad_accum_steps: 2
+  use_amp: true
+  infer_batch_size: 1024
+  lambda_niche_recon: 1.0
+  lambda_cell_recon: 1.0
+  lambda_cell_mask: 1.0
+  lambda_binary: 0.1
+
+inference:
+  output_genes: []
+
+logging:
+  use_tensorboard: false
+  use_wandb: false
+  wandb_project: StereoTrack
+  wandb_name: my_dataset_no_norm
+  wandb_save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/my_dataset_no_norm_train/wandb

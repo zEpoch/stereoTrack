@@ -11,6 +11,7 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 import argparse
+import csv
 import pickle
 from pathlib import Path
 
@@ -29,7 +30,42 @@ def parse_args():
     parser.add_argument("--checkpoint", type=str, required=True)
     parser.add_argument("--batch_size", type=int, default=4096)
     parser.add_argument("--device", type=str, default="cuda:0")
+    parser.add_argument("--output-dir", type=str, default=None)
+    parser.add_argument("--genes", nargs="*", default=None, help="Optional gene subset to write.")
+    parser.add_argument("--gene-file", type=str, default=None, help="Optional text file with one gene per line.")
+    parser.add_argument("--all-genes", action="store_true", help="Write all macaque common genes.")
+    parser.add_argument("--embedding-only", action="store_true", help="Only write obsm['niche_embedding']; skip decoder and expression output.")
+    parser.add_argument("--embedding-dtype", choices=["float16", "float32"], default="float16")
+    parser.add_argument("--embedding-output-format", choices=["h5ad", "npy"], default="h5ad")
+    parser.add_argument("--compression", choices=["none", "lzf", "gzip"], default="lzf")
+    parser.add_argument("--skip-existing", action="store_true", help="Skip non-empty slice output files.")
+    parser.add_argument("--start-slice", type=int, default=0)
+    parser.add_argument("--end-slice", type=int, default=None, help="Exclusive end slice index.")
     return parser.parse_args()
+
+
+def append_manifest(manifest_path, row):
+    fieldnames = [
+        "slice_idx",
+        "batch",
+        "n_cells",
+        "n_dim",
+        "dtype",
+        "embedding_path",
+        "obs_names_path",
+    ]
+    write_header = not os.path.exists(manifest_path) or os.path.getsize(manifest_path) == 0
+    with open(manifest_path, "a", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        if write_header:
+            writer.writeheader()
+        writer.writerow(row)
+
+
+def output_prefix_from_slice_info(slice_info):
+    batch = str(slice_info.get("batch", ""))
+    stem = Path(batch).stem
+    return stem or f"slice_{slice_info.get('slice_idx', 'unknown')}"
 
 
 def load_meta(cfg):
@@ -50,6 +86,36 @@ def load_meta(cfg):
         )
 # ...existing code...
 
+
+def read_gene_file(path):
+    genes = []
+    with open(path) as handle:
+        for line in handle:
+            line = line.strip()
+            if line and not line.startswith("#"):
+                genes.extend(item.strip() for item in line.split(",") if item.strip())
+    return genes
+
+
+def requested_genes(args, meta):
+    common_genes = list(meta.get("common_genes") or meta.get("common_human_genes") or [])
+    if args.all_genes:
+        return common_genes
+    genes = []
+    if args.gene_file:
+        genes.extend(read_gene_file(args.gene_file))
+    if args.genes:
+        genes.extend(args.genes)
+    if genes:
+        return list(dict.fromkeys(genes))
+    return [
+        "SLC17A7", "GPR83", "CCBE1", "CUX2", "GPC5", "PDZD2", "CUX1", "MYLK", "PDCH1",
+        "RORB", "IL1RAPL2", "ETV1", "TLE4", "SEMA3E", "GAD1", "GAD2", "ADARB2", "LAMP5",
+        "FBXL7", "KIT", "EYA4", "CALB2", "RELN", "VIP", "SOX6", "TRPS1", "ADAMTSL1",
+        "PVALB", "POSTN", "SST", "CALB1", "SLC1A2", "SLC1A3", "PTPRZ1", "PDGFRA",
+        "COL9A1", "PLP1", "ITGAM", "RGS5", "COL1A2",
+    ]
+
 @torch.no_grad()
 def inference():
     args = parse_args()
@@ -59,7 +125,7 @@ def inference():
     device = torch.device(args.device if torch.cuda.is_available() else "cpu")
     save_dir = cfg["paths"]["save_dir"]
     adata_dir = os.path.join(save_dir, "adatas")
-    adata_save_dir = os.path.join(save_dir, "inference_adatas")
+    adata_save_dir = args.output_dir or os.path.join(save_dir, "inference_adatas")
     Path(adata_dir).mkdir(parents=True, exist_ok=True)
     Path(adata_save_dir).mkdir(parents=True, exist_ok=True)
 
@@ -71,6 +137,14 @@ def inference():
 
     print(f"缓存目录: {cache_dir}")
     print(f"切片数: {n_slices}, 输入维度: {input_dim}")
+    output_genes = requested_genes(args, meta)
+    if args.embedding_only:
+        print(
+            "输出模式: embedding-only, "
+            f"format={args.embedding_output_format}, niche_embedding dtype={args.embedding_dtype}"
+        )
+    else:
+        print(f"输出基因数: {len(output_genes)}")
 
     model = MAEEncoder(
         input_dim=input_dim,
@@ -102,7 +176,15 @@ def inference():
         new_k = k.replace("module.", "").replace("model.", "")
         state_dict[new_k] = v
     
-    model.load_state_dict(state_dict)
+    try:
+        model.load_state_dict(state_dict, strict=True)
+    except RuntimeError as exc:
+        print(f"[warn] strict checkpoint load failed, retry with strict=False: {exc}")
+        incompatible = model.load_state_dict(state_dict, strict=False)
+        if incompatible.missing_keys:
+            print(f"[warn] missing keys: {incompatible.missing_keys}")
+        if incompatible.unexpected_keys:
+            print(f"[warn] unexpected keys: {incompatible.unexpected_keys}")
     model.to(device)
     model.eval()
     best_loss = ckpt.get("best_loss", "未知")
@@ -112,9 +194,18 @@ def inference():
         print(f"模型加载自: {args.checkpoint} (epoch {epoch}, loss {best_loss})")
     
     # ── 逐切片推理（使用 Core-Halo 无缝子图策略） ──
-    for s_idx in range(n_slices):
+    end_slice = n_slices if args.end_slice is None else min(args.end_slice, n_slices)
+    for s_idx in range(args.start_slice, end_slice):
         slice_info = meta["slice_info"][s_idx]
         n_cells = slice_info["n_cells"]
+        output_prefix = output_prefix_from_slice_info(slice_info)
+        if args.embedding_only and args.embedding_output_format == "npy":
+            out_path = os.path.join(adata_save_dir, f"{output_prefix}.niche_embedding.npy")
+        else:
+            out_path = os.path.join(adata_save_dir, f"{output_prefix}.h5ad")
+        if args.skip_existing and os.path.exists(out_path) and os.path.getsize(out_path) > 0:
+            print(f"\n[skip] 切片 {s_idx}: {out_path} exists")
+            continue
 
         print(f"\n切片 {s_idx} (z={slice_info['batch']}): 全图 {n_cells} cells")
 
@@ -160,61 +251,103 @@ def inference():
             feat_ts = torch.from_numpy(feat_sub).to(device)
             adj_ts = torch.from_numpy(adj_sub).to(device)
 
-            with torch.amp.autocast("cuda"):
+            with torch.amp.autocast("cuda", enabled=(device.type == "cuda")):
                 z_cell, z_niche = model.encode(feat_ts, adj_ts)
-                x_recon = model.decoder(z_niche)
+                x_recon = None if args.embedding_only else model.niche_decoder(z_niche)
 
             # 【魔法在这里】：算完之后，只剔出 Core 核心细胞的结果（抛弃辅助边缘细胞）！
             # 这样拼贴起来，没有任何截断缝隙！
-            z_cell_list.append(z_cell[core_mask].cpu().numpy())
+            if not args.embedding_only:
+                z_cell_list.append(z_cell[core_mask].cpu().numpy())
             z_niche_list.append(z_niche[core_mask].cpu().numpy())
-            x_recon_list.append(x_recon[core_mask].cpu().numpy())
+            if x_recon is not None:
+                x_recon_list.append(x_recon[core_mask].cpu().numpy())
 
             del feat_ts, adj_ts, z_cell, z_niche, x_recon
-            torch.cuda.empty_cache()
+            if device.type == "cuda":
+                torch.cuda.empty_cache()
 
             print(f"  预测进度: {end}/{n_cells} cells")
 
         # 3. 无缝拼接结果（保证长度必定等于 n_cells）
-        z_cell_np = np.concatenate(z_cell_list, axis=0)
         z_niche_np = np.concatenate(z_niche_list, axis=0)
-        x_recon_np = np.concatenate(x_recon_list, axis=0)
+        if args.embedding_dtype == "float16":
+            z_niche_np = z_niche_np.astype(np.float16, copy=False)
+        else:
+            z_niche_np = z_niche_np.astype(np.float32, copy=False)
+        if not args.embedding_only:
+            z_cell_np = np.concatenate(z_cell_list, axis=0)
+            x_recon_np = np.concatenate(x_recon_list, axis=0)
+
+        adata_cache = os.path.join(cache_dir, "adatas", f"slice_{s_idx}.h5ad")
+        if args.embedding_only and args.embedding_output_format == "npy":
+            np.save(out_path, z_niche_np)
+            obs_names_path = os.path.join(adata_save_dir, f"{output_prefix}.obs_names.txt")
+            if os.path.exists(adata_cache):
+                adata_orig = sc.read_h5ad(adata_cache)
+                with open(obs_names_path, "w") as handle:
+                    handle.write("\n".join(map(str, adata_orig.obs_names)) + "\n")
+                del adata_orig
+            else:
+                obs_names_path = ""
+            append_manifest(
+                os.path.join(adata_save_dir, "niche_embedding_manifest.csv"),
+                {
+                    "slice_idx": s_idx,
+                    "batch": slice_info["batch"],
+                    "n_cells": int(z_niche_np.shape[0]),
+                    "n_dim": int(z_niche_np.shape[1]),
+                    "dtype": str(z_niche_np.dtype),
+                    "embedding_path": out_path,
+                    "obs_names_path": obs_names_path,
+                },
+            )
+            print(f"  → 已保存 embedding: {out_path}, shape={z_niche_np.shape}, dtype={z_niche_np.dtype}")
+            del z_niche_list, x_recon_list, z_niche_np, feat_sparse, adj_sparse
+            gc.collect()
+            continue
 
         # 4. 写入原图 AnnData
-        adata_cache = os.path.join(cache_dir, "adatas", f"slice_{s_idx}.h5ad")
         adata_orig = sc.read_h5ad(adata_cache) if os.path.exists(adata_cache) else None
-        adata_out = sc.AnnData(X=x_recon_np)
+        if args.embedding_only:
+            adata_out = sc.AnnData(X=sp.csr_matrix((n_cells, 0), dtype=np.float32))
+            adata_out.var = adata_out.var.iloc[:0].copy()
+        else:
+            adata_out = sc.AnnData(X=x_recon_np)
 
         if adata_orig is not None:
             adata_out.obs = adata_orig.obs.copy()
-            adata_out.var = adata_orig.var.copy()
+            if not args.embedding_only:
+                adata_out.var = adata_orig.var.copy()
             for key in adata_orig.obsm:
                 if key not in ["cell_embedding", "niche_embedding", 'adj_norm', 'spatial', 'spatial_input']:
                     adata_out.obsm[key] = adata_orig.obsm[key]
 
-        adata_out.obsm["cell_embedding"] = z_cell_np
+        if not args.embedding_only:
+            adata_out.obsm["cell_embedding"] = z_cell_np
         adata_out.obsm["niche_embedding"] = z_niche_np
 
-        target_genes = [
-            "SLC17A7", "GPR83", "CCBE1", "CUX2", "GPC5", "PDZD2", "CUX1", "MYLK", "PDCH1", 
-            "RORB", "IL1RAPL2", "ETV1", "TLE4", "SEMA3E", "GAD1", "GAD2", "ADARB2", "LAMP5", 
-            "FBXL7", "KIT", "EYA4", "CALB2", "RELN", "VIP", "SOX6", "TRPS1", "ADAMTSL1", 
-            "PVALB", "POSTN", "SST", "CALB1", "SLC1A2", "SLC1A3", "PTPRZ1", "PDGFRA", 
-            "COL9A1", "PLP1", "ITGAM", "RGS5", "COL1A2"
-        ]
-        
-        if adata_orig is not None:
+        if adata_orig is not None and not args.embedding_only:
             # 取交集以免个别基因在当前切片或数据集中不存在而报错
-            valid_genes = [g for g in target_genes if g in adata_out.var_names]
+            valid_genes = [g for g in output_genes if g in adata_out.var_names]
             adata_out = adata_out[:, valid_genes].copy()
-            print(f"  提取 {len(valid_genes)} 个目标基因以节省空间")
+            print(f"  输出 {len(valid_genes)} 个基因")
         # =========================================================================
 
-        out_path = os.path.join(adata_save_dir, f"slice_{s_idx}.h5ad")
-        adata_out.write_h5ad(out_path)
+        if not args.embedding_only:
+            with open(os.path.join(adata_save_dir, "genes_used_for_stereotrack_output.txt"), "w") as handle:
+                handle.write("\n".join(map(str, adata_out.var_names)) + "\n")
+
+        if args.compression == "none":
+            adata_out.write_h5ad(out_path)
+        else:
+            adata_out.write_h5ad(out_path, compression=args.compression)
         print(f"  → 已保存: {out_path}")
 
-        del z_cell_list, z_niche_list, x_recon_list, adata_out, adata_orig
+        del z_niche_list, x_recon_list, adata_out, adata_orig
+        if not args.embedding_only:
+            del z_cell_list, z_cell_np, x_recon_np
+        del z_niche_np
         gc.collect()
 
     print("\n推理全部完成！")

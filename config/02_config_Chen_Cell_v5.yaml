@@ -17,13 +17,17 @@ model:
 
 training:
   patch_size: 16384
-  n_epochs: 50
-  learning_rate: 1e-3      
-  warmup_epochs: 5 
+  n_epochs: 100
+  learning_rate: 2e-4
+  warmup_epochs: 5
   patience: 20
   grad_accum_steps: 4
-  use_amp: false
+  use_amp: true
   infer_batch_size: 16384
+  lambda_niche_recon: 1.0
+  lambda_cell_recon: 1.0
+  lambda_cell_mask: 1.0
+  lambda_binary: 0.1
 
 logging:
   use_tensorboard: False

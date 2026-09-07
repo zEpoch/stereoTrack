@@ -1,0 +1,56 @@
+paths:
+  data_path: /home/share/huadjyin/home/zhoutao3/tracks/example_data/15_zebrafish_embryos/combined
+  input_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/15_zebrafish_embryos_combined_mae_v1
+  save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/15_zebrafish_embryos_combined_mae_v1_train
+
+preprocess:
+  spatial_key: ccf
+  stage_spatial_keys:
+    A_50p: global_sphere
+    B_75p: global_sphere
+    C_6s: spatial_rescaled_z
+  graph_method: delaunay_3d
+  n_neighbors: 8
+  knn_chunk_size: 100000
+  patch_axes: 3
+  min_counts: 0
+  skip_normalize_log_scale: false
+  target_sum: 10000.0
+  max_value: 10.0
+  compress_npz: false
+  random_seed: 42
+
+model:
+  hidden_dim: 256
+  latent_dim: 64
+  dropout_rate: 0.1
+  gene_mask_ratio: 0.5
+  cell_mask_ratio: 0.2
+  n_encoder_layers: 2
+  n_decoder_layers: 2
+  niche_self_weight: 0.1
+
+training:
+  patch_size: 4096
+  n_epochs: 50
+  learning_rate: 2e-4
+  warmup_epochs: 5
+  patience: 20
+  grad_accum_steps: 2
+  use_amp: true
+  infer_batch_size: 2048
+  lambda_niche_recon: 1.0
+  lambda_cell_recon: 1.0
+  lambda_cell_mask: 1.0
+  lambda_binary: 0.1
+
+inference:
+  output_genes: []
+
+logging:
+  use_tensorboard: false
+  tensorboard_save_dir: ./logs/tensorboard
+  use_wandb: true
+  wandb_project: StereoTrack
+  wandb_name: 15_zebrafish_embryos_combined_mae_v1
+  wandb_save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/15_zebrafish_embryos_combined_mae_v1_train/wandb

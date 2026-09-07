@@ -1,4 +1,7 @@
-import ot
+try:
+    import ot
+except ImportError:
+    ot = None
 import torch
 import random
 import logging
@@ -11,7 +14,14 @@ from sklearn.cluster import KMeans
 from scipy.sparse import csr_matrix
 from numpy.random import RandomState
 from sklearn.neighbors import NearestNeighbors
-from typing import Literal, Optional, Tuple, Union
+from typing import Optional, Tuple, Union
+try:
+    from typing import Literal
+except ImportError:
+    try:
+        from typing_extensions import Literal
+    except ImportError:
+        Literal = str
 from sklearn.metrics.pairwise import euclidean_distances
 
 def seed_all(seed=42):
@@ -109,6 +119,9 @@ def get_ot_matrix(
     numItermax: int = 1000,
     use_gpu: bool = False,
 ) -> np.ndarray:
+
+    if ot is None:
+        raise ImportError("POT is required for get_ot_matrix. Install package 'POT' to use OT-based trajectory.")
 
     if use_rep not in adata.obsm:
         raise ValueError(f"use_rep '{use_rep}' is not in adata.obsm")

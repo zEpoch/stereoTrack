@@ -1,0 +1,49 @@
+paths:
+  data_path: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/04_three_species_mae_v1
+  input_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/04_three_species_mae_v1
+  save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/04_three_species_mae_v1_train
+
+preprocess:
+  spatial_key: 'ccf'
+
+model:
+  hidden_dim: 512
+  latent_dim: 64
+  dropout_rate: 0.1
+  gene_mask_ratio: 0.5
+  cell_mask_ratio: 0.2
+  n_encoder_layers: 3
+  n_decoder_layers: 3
+  niche_self_weight: 0.1   # z_niche = alpha * z_cell + (1-alpha) * neighbor；越大越保留细胞自身 identity
+
+training:
+  patch_size: 16384
+  n_epochs: 50
+  learning_rate: 2e-4
+  warmup_epochs: 5
+  patience: 20
+  grad_accum_steps: 4
+  use_amp: false
+  infer_batch_size: 16384
+  lambda_niche_recon: 1.0  # z_niche 对被遮盖基因的重建权重，偏空间上下文/niche
+  lambda_cell_recon: 1.0   # z_cell 直接重建被遮盖基因的权重，提升 cell embedding 聚类/identity
+  lambda_cell_mask: 1.0    # 遮盖整个细胞后由邻域恢复表达的权重，偏空间依赖学习
+  lambda_binary: 0.1       # 二值表达/非表达重建任务权重，建议 0.1 ~ 0.3
+
+alignment:
+  enabled: false           # 仅建议跨物种 3D 整合实验开启；默认关闭，不影响普通训练
+  lambda_alignment: 0.0    # 初始建议 0.01~0.05，过大会把真实物种差异抹平
+  target: both             # cell / niche / both；cell 偏细胞类型对齐，niche 偏空间生态位对齐
+  metric: cosine           # cosine / mse
+  warmup_epochs: 10        # 先让 MAE 学基本表达结构，再开始对齐
+  ramp_epochs: 10          # alignment 权重线性升到 lambda_alignment
+  ema_momentum: 0.95       # 每个物种 prototype 的 EMA 更新动量
+  normalize: true
+
+logging:
+  use_tensorboard: false
+  tensorboard_save_dir: ./logs/tensorboard
+  use_wandb: true
+  wandb_project: StereoTrack
+  wandb_name: 04_three_species_mae_v1
+  wandb_save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/04_three_species_mae_v1_train/wandb

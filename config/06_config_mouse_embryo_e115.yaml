@@ -1,0 +1,91 @@
+paths:
+  data_path: /home/share/huadjyin/home/zhoutao3/tracks/example_data/05_mouse_embyro_e115/mouse_E11.5_embryo.h5ad
+  input_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/06_mouse_embryo_e115_mae_v1
+  save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/06_mouse_embryo_e115_mae_v1_train
+
+preprocess:
+  spatial_key: ccf
+  source_spatial_key: z_correction
+  section_axis: 2
+  section_key: section_z
+  slab_size: 5
+  obs_filter:
+    enabled: true
+    key: mapped_celltype
+    values:
+      - Neural progenitors
+      - Spinal cord dorsal progenitors
+      - Glutamatergic neurons
+      - Spinal cord motor neurons
+      - Cajal-Retzius cells
+      - GABAergic interneurons
+      - GABAergic neurons
+      - Spinal V0/1 interneurons
+      - Cranial motor neurons
+      - Spinal cord ventral progenitors
+      - Spinal V2/3 interneurons
+      - Zona limitans intratalalmacica
+      - Zona limitans intrathalamica
+      - Choroid plexus epithelial precursors
+      - Intermediate neuronal progenitors
+      - Posterior roof plate
+      - Midbrain neuroectoderm
+      - Diencephalon neuroectoderm
+      - Floorplate and p3 domain
+      - Anterior roof plate
+      - Anterior floor plate
+      - Hindbrain neuroectoderm
+      - Hypothalamus (Sim1+) neuroectoderm
+      - Dorsal telencephalon neuroectoderm
+      - Eye field
+      - Telencephalon neuroectoderm
+      - Neuroectoderm-derived
+      - NMPs and spinal cord progenitors
+      - Astrocytes
+      - Spinal cord neuroectoderm
+      - Hypothalamus neuroectoderm
+      - Midbrain-hindbrain boundary
+  hvg_n_top_genes: 0
+  hvg_sample_cells: 200000
+  hvg_flavor: cell_ranger
+  min_selected_counts: 1
+  within_neighbors: 8
+  cross_neighbors: 3
+  patch_axes: 2
+  compress_npz: false
+  random_seed: 42
+
+model:
+  hidden_dim: 512
+  latent_dim: 64
+  dropout_rate: 0.1
+  gene_mask_ratio: 0.5
+  cell_mask_ratio: 0.2
+  n_encoder_layers: 3
+  n_decoder_layers: 3
+  niche_self_weight: 0.1
+
+training:
+  patch_size: 4096
+  n_epochs: 50
+  learning_rate: 2e-4
+  warmup_epochs: 5
+  patience: 15
+  grad_accum_steps: 4
+  use_amp: true
+  infer_batch_size: 1024
+  lambda_niche_recon: 1.0
+  lambda_cell_recon: 1.0
+  lambda_cell_mask: 1.0
+  lambda_binary: 0.1
+
+inference:
+  output_genes: []
+
+logging:
+  use_tensorboard: false
+  tensorboard_save_dir: ./logs/tensorboard
+  use_wandb: true
+  wandb_project: StereoTrack
+  wandb_name: 06_mouse_embryo_e115_neural_allgenes_v1
+  wandb_save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/06_mouse_embryo_e115_mae_v1_train/wandb

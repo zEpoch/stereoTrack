@@ -68,9 +68,10 @@ class LazyPatchDataset(Dataset):
     """
     读取预先由 K-Means 切好的、物理空间连通的固定 Patch。
     """
-    def __init__(self, cache_dir, patches):
+    def __init__(self, cache_dir, patches, species_to_id=None):
         self.cache_dir = cache_dir
         self.patches = patches
+        self.species_to_id = species_to_id or {}
 
     def __len__(self):
         return len(self.patches)
@@ -99,10 +100,13 @@ class LazyPatchDataset(Dataset):
         feat_dense = feat_sparse.toarray()
         adj_dense = adj_sparse.toarray()
 
+        species = info.get("species", "unknown")
         return {
             "features": torch.from_numpy(feat_dense),
             "adj": torch.from_numpy(adj_dense),
             "slice_idx": slice_idx,
+            "species": species,
+            "species_id": torch.tensor(self.species_to_id.get(species, -1), dtype=torch.long),
         }
 
 class DynamicGraphDataset(Dataset):

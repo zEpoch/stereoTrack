@@ -23,6 +23,17 @@ from .utils import (
 from .mae import (
     MAEEncoder
 )
+from .trajectory3d import (
+    build_edge_distance_graph,
+    build_gap_aware_topology,
+    build_geometry_topology_3d,
+    build_streaming_mutual_knn_topology_3d,
+    plot_trajectory_k3d,
+    plot_trajectory_plotly_cones,
+    plot_trajectory_plotly_streamtube,
+    plot_trajectory_streamplot_projections,
+    run_embedding_trajectory_3d,
+)
 
 __all__ = [
     'MAEEncoder',
@@ -41,5 +52,14 @@ __all__ = [
     'get_ptime',
     'get_ot_matrix',
     'set_start_cells',
-    'run_track'
+    'run_track',
+    'build_gap_aware_topology',
+    'build_edge_distance_graph',
+    'build_geometry_topology_3d',
+    'build_streaming_mutual_knn_topology_3d',
+    'plot_trajectory_k3d',
+    'plot_trajectory_plotly_cones',
+    'plot_trajectory_plotly_streamtube',
+    'plot_trajectory_streamplot_projections',
+    'run_embedding_trajectory_3d',
 ]

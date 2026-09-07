@@ -1,0 +1,73 @@
+paths:
+  data_path: /home/share/huadjyin/home/zhoutao3/tracks/example_data/01.axolotl/ARTISTA_h5ad
+  input_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/01_axolotl_artista_mae_v1
+  save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/01_axolotl_artista_mae_v1_train
+
+preprocess:
+  spatial_key: ccf
+  source_spatial_key: spatial
+  expression_layer:
+  graph_method: knn
+  n_neighbors: 12
+  knn_chunk_size: 100000
+  patch_axes: 2
+  min_counts: 0
+  skip_normalize_log_scale: true
+  target_sum: 10000.0
+  max_value: 10.0
+  compress_npz: false
+  random_seed: 42
+  include_stems:
+    - 60DPI
+    - 30DPI
+    - 15DPI_1
+    - 20DPI_2
+    - 15DPI_4
+    - 15DPI_2
+    - 15DPI_3
+    - 20DPI_1
+    - 20DPI_3
+    - 10DPI_2
+    - 10DPI_3
+    - 10DPI_1
+    - 5DPI_1
+    - 5DPI_2
+    - 5DPI_3
+    - 2DPI_1
+    - 2DPI_2
+    - 2DPI_3
+
+model:
+  hidden_dim: 256
+  latent_dim: 64
+  dropout_rate: 0.1
+  gene_mask_ratio: 0.5
+  cell_mask_ratio: 0.2
+  n_encoder_layers: 2
+  n_decoder_layers: 2
+  niche_self_weight: 0.1
+
+training:
+  patch_size: 4096
+  n_epochs: 50
+  learning_rate: 2e-4
+  warmup_epochs: 5
+  patience: 20
+  grad_accum_steps: 2
+  use_amp: true
+  infer_batch_size: 1024
+  lambda_niche_recon: 1.0
+  lambda_cell_recon: 1.0
+  lambda_cell_mask: 1.0
+  lambda_binary: 0.1
+
+inference:
+  output_genes: []
+
+logging:
+  use_tensorboard: false
+  tensorboard_save_dir: ./logs/tensorboard
+  use_wandb: false
+  wandb_project: StereoTrack
+  wandb_name: 01_axolotl_artista_mae_v1
+  wandb_save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/01_axolotl_artista_mae_v1_train/wandb

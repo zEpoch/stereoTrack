@@ -25,7 +25,6 @@ from stereotrack import (
     construct_graph,
     preprocess_adj_sparse,
     get_spatial_input,
-    construct_data_multislice,
     get_feature_sparse,
 )
 

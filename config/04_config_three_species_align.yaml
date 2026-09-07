@@ -1,0 +1,53 @@
+paths:
+  data_path: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/04_three_species_mae_v1
+  input_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/04_three_species_mae_v1
+  save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/04_three_species_mae_v1_train_align_v1
+
+preprocess:
+  spatial_key: 'ccf'
+
+model:
+  hidden_dim: 512
+  latent_dim: 64
+  dropout_rate: 0.1
+  gene_mask_ratio: 0.5
+  cell_mask_ratio: 0.2
+  n_encoder_layers: 3
+  n_decoder_layers: 3
+  niche_self_weight: 0.1
+
+training:
+  patch_size: 16384
+  n_epochs: 100
+  learning_rate: 2e-4
+  warmup_epochs: 5
+  patience: 30
+  grad_accum_steps: 4
+  use_amp: false
+  infer_batch_size: 16384
+  lambda_niche_recon: 1.0
+  lambda_cell_recon: 1.0
+  lambda_cell_mask: 1.0
+  lambda_binary: 0.1
+  species_balanced_sampling: true
+  samples_per_species: 3000
+  sampling_seed: 42
+
+alignment:
+  enabled: true
+  lambda_alignment: 0.02
+  target: cell
+  metric: cosine
+  warmup_epochs: 10
+  ramp_epochs: 10
+  ema_momentum: 0.95
+  normalize: true
+  sync_prototypes: true
+
+logging:
+  use_tensorboard: false
+  tensorboard_save_dir: ./logs/tensorboard
+  use_wandb: true
+  wandb_project: StereoTrack
+  wandb_name: 04_three_species_mae_v1_align_v1
+  wandb_save_dir: /home/share/huadjyin/home/zhoutao3/tracks/stereoTrack/out/04_three_species_mae_v1_train_align_v1/wandb
